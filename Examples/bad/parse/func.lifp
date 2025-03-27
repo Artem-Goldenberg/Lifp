@@ -1,0 +1,9 @@
+// (func Atom List Element)
+
+(func)
+(func a)
+(func a ())
+
+(func (non atom) () el)
+(func a non-list el)
+(func way (too) much args)

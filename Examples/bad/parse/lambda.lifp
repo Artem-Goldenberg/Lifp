@@ -1,0 +1,7 @@
+// (lambda List Element)
+
+(lambda)
+(lambda ())
+
+(lambda (non-list) el)
+(lambda (too) much args)

@@ -1,0 +1,16 @@
+(func mkPair (a b)
+	(lambda (f)
+		(f a b)
+	)
+)
+
+(func K (x y) x)
+(func Ks (x y) y)
+
+(func fst (p)
+	(p K)
+)
+
+(func snd (p)
+	(p Ks)
+)

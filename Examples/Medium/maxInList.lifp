@@ -1,0 +1,19 @@
+(func maxInList (list)
+    (cond (not (islist list))
+        null
+        (prog ()
+            (setq h (head list))
+            (setq t (tail list))
+            (cond (isnull t)
+                (return h)
+                (cond (less h t)
+                    (return t)
+                    (return h) 
+                )
+             )
+        )
+    )
+)
+
+(maxInList '(1 2 3 4 5)) // 5
+(maxInList '(-100 123 99 2)) // 123
