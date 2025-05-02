@@ -35,7 +35,7 @@
     <int>   INTEGER
     <ID>    IDENTIFIER
 
-%type <List*> manyElements program start
+%type <List*> manyElements program
 %type <Element*> element listContent literal
 %type <IdentifierList*> parameters manyIdentifiers
 
@@ -43,11 +43,11 @@
 
 %%
 
-program: manyElements { *root = $$ = $1; $1->base.type = syntax.Root; }
+program: manyElements { *root = $$ = $1; }
 
 manyElements:
     %empty { $$ = node.list(); }
-  | manyElements element { $$ = $1; appendElement($1, $2); }
+  | manyElements element { $$ = $1; node.appendElement($1, $2); }
 
 element:
     "'" element { $$ = node.quote($2);      }
@@ -63,9 +63,9 @@ listContent:
   | "prog" parameters element            { $$ = node.prog($2, $3);       }
   | "cond" element element               { $$ = node.cond($2, $3, NULL); }
   | "cond" element element element       { $$ = node.cond($2, $3, $4);   }
-  | "while" element element              { $$ = node.whileForm($2, $3);  }
-  | "return" element                     { $$ = node.returnForm($2);     }
-  | "break"                              { $$ = node.leaf(syntax.Break); }
+  | "while" element element              { $$ = node.whileNode($2, $3);  }
+  | "return" element                     { $$ = node.returnNode($2);     }
+  | "break"                              { $$ = node.breakNode(); }
   | manyElements {
       $$ = (Element*)$1;
       node.finalize();
@@ -75,14 +75,14 @@ parameters: "(" manyIdentifiers ")" { $$ = $2; node.finalize(); }
 
 manyIdentifiers:
     %empty { $$ = node.identifierList(); }
-    | manyIdentifiers IDENTIFIER { $$ = $1; appendIdentfier($1, $2); }
+    | manyIdentifiers IDENTIFIER { $$ = $1; node.appendIdentifier($1, $2); }
 
 literal:
-    INTEGER { $$ = node.integer($1);        }
-  | REAL    { $$ = node.real($1);           }
-  | "true"  { $$ = node.leaf(syntax.True);  }
-  | "false" { $$ = node.leaf(syntax.False); }
-  | "null"  { $$ = node.leaf(syntax.Null);  }
+    INTEGER { $$ = node.integer($1); }
+  | REAL    { $$ = node.real($1);    }
+  | "true"  { $$ = node.trueNode();  }
+  | "false" { $$ = node.falseNode(); }
+  | "null"  { $$ = node.null();      }
 
 %%
 

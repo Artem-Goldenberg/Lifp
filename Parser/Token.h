@@ -7,8 +7,8 @@
 #define TokenGroups Keyword, Value, Other, Special
 
 #define KeywordTokens Quote, Setq, Func, Lambda, Prog, Cond, While, Return, Break
-#define ValueTokens   Identifier, Integer, Real, True, False, Null
-#define OtherTokens   QuoteSymbol, OpenParen, CloseParen, Comment, Error, End
+#define ValueTokens Identifier, Integer, Real, True, False, Null
+#define OtherTokens QuoteSymbol, OpenParen, CloseParen, Comment, Error, End
 
 #define Tokens KeywordTokens, ValueTokens, OtherTokens
 
@@ -17,23 +17,39 @@
 #define TokenIndex(token) token##Token
 
 typedef enum: byte {
-    // QuoteToken, SetqToken, ...
+    // QuoteToken, SetqToken, ... , TokensCount
     JTMapComma(TokenIndex, Tokens),
     TokensCount
 } Token;
 
-
 const char* stringForToken(Token token);
 
 
-typedef struct {
+/// Represents an exact position in the program text
+typedef struct Location {
+    /// Starts from 1, lines are separated by the '\n' character
     uint line;
+    /// Starts from 1 as well, all characters are counted as one column (even tab characters)
     uint column;
+
+#ifdef ReportErrors
+    /// To quickly navigate to the location without reading the whole text we need it's byte offset
+    uint offset;
+#endif
 } Location;
 
+inline bool isValidLocation(const Location* loc) {
+    return loc->line >= 1 && loc->column >= 1;
+}
+
+#ifdef ReportErrors
+inline uint locationLineOffset(const Location* loc) {
+    return loc->offset - (loc->column - 1);
+}
+#endif
 
 
-#ifdef DEBUG
+#ifdef LifpDebug
 
 /// Unique identifier value to quickly determine equal strings
 ///
@@ -62,13 +78,13 @@ typedef struct {
 /// is what other strings in the program matches this one. And comparing an index is enough to determine it
 typedef uint ID;
 
-#endif /* DEBUG */
+#endif /* LifpDebug */
 
 
 #define Member(token) const Token token;
 #define Binding(token) .token = TokenIndex(token)
 
-static const struct { // TODO: maybe extern?
+static const struct {
     // const Token Quote; const Token Setq; ...
     JTForEach(Member, Tokens)
 }

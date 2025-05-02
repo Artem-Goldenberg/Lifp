@@ -8,25 +8,22 @@
 
 // TODO: read errors
 
-typedef enum {
-    Digits,
-
-} CharGroup;
-
 struct Lexer {
+    /// File or whatever from where we read the program text
     FILE* source;
+    /// Current byte the lexer has officially stopped on
     char current;
+    /// Peek byte, ie the next byte lexer will officially read
     char peek;
 
+    /// Marks the location from where we've started reading current token
     Location tokenStart;
+    /// Current official location of the lexer
     Location location;
-    uint lineOffset;
 
-    /// buffer for reading the identifier
+    /// Buffer for reading in the identifier
     char buffer[MaxIdentifierLength + 1];
     uint top;
-
-    StringTable* strings;
 
     union {
         int integer;
@@ -35,16 +32,8 @@ struct Lexer {
         uint identifierIndex;
     } value;
 
-    struct {
-        Location location;
-        uint offset;
-        char unexpected;
-        Token expectedToken;
-        CharGroup expecting;
-        ErrorKind type;
-    } error;
-
     ProgramInfo* programInfo;
+
 };
 
 
@@ -102,19 +91,18 @@ void initializeLexing(void) {
 }
 
 
-Lexer* newLexer(FILE* source, ProgramInfo* info) {
+Lexer* newLexer(ProgramInfo* info) {
     Lexer* result = malloc(sizeof(Lexer));
     if (!result) return NULL;
 
     *result = (Lexer) {
-        .source = source,
-        .peek = getc(source),
+        .source = info->text,
+        .peek = getc(info->text),
         .location = (Location) {
             .line = 1, .column = 0
         }, // column is explicitly zeroed out, becuase we haven't read anything yet
+        .programInfo = info,
         // other fields are zero
-        .strings = newStringTable(1001, 0),
-        .programInfo = info
     };
 
     return result;
@@ -166,10 +154,13 @@ static char readChar(Lexer* lexer) {
     if (lexer->current == EOF) // we done with the file
         return EOF; // will return EOF all the time and do nothing
 
+#ifdef ReportErrors
+    if (isValidLocation(&lexer->location))
+        lexer->location.offset++;
+#endif
     lexer->location.column++;
 
     if (lexer->current == '\n') {
-        lexer->lineOffset += lexer->location.column - 1;
         lexer->location.line++;
         lexer->location.column = 1;
     }
@@ -180,11 +171,10 @@ static char readChar(Lexer* lexer) {
     return lexer->current;
 }
 
-/// Better name for the weird for loop, just moves lexer to the end of the line
-static void skipLine(Lexer* lexer) {
-    for (char next = lexer->current;
-         next != '\n' && next != EOF;
-         next = readChar(lexer));
+/// Just moves lexer to the position before the end of the line
+static void skipToLineEnd(Lexer* lexer) {
+    while (lexer->peek != '\n' && lexer->peek != EOF)
+        readChar(lexer);
 }
 
 /// Similar function, just skips to delimeter, stopping lexer at last non-delimeter, different way of implementation
@@ -233,13 +223,26 @@ static Token numberFormatError(Lexer* lexer, bool isReal) {
     // read the error character and now we are at the error position
     char unexpected = readChar(lexer);
 
-    lexer->error.location = lexer->location;
-    lexer->error.unexpected = unexpected;
-    lexer->error.expecting = Digits;
-    lexer->error.type = NumberFormat;
-    lexer->error.expectedToken = isReal ? token.Real : token.Integer;
+#ifdef ReportErrors
+    LexerError error = (LexerError) {
+        .base = (Error) {
+            .type = LexerErrorType,
+            .start = lexer->location,
+            .severity = ErrorSeverity
+        },
+        .expecting = Digits,
+        .unexpected = unexpected,
+        .token = isReal ? token.Real : token.Integer,
+    };
+#endif
 
     skipToDelimeter(lexer);
+
+#ifdef ReportErrors
+    error.base.end = lexer->location;
+    addError(&lexer->programInfo->errors, (Error*)&error);
+#endif
+
     return token.Error;
 }
 
@@ -297,8 +300,8 @@ static Token readIdentifier(Lexer* lexer) {
     }
 
     // if not a keyword, store identifier in a special table, which removes duplicates
-    lexer->value.identifierIndex = insertIntoStringTable(lexer->strings, lexer->buffer);
-
+    lexer->value.identifierIndex = insertIntoStringTable(lexer->programInfo->strings,
+                                                         lexer->buffer);
     return token.Identifier;
 }
 
@@ -321,7 +324,7 @@ static Token readToken(Lexer* lexer) {
             case '\'':
                 return token.QuoteSymbol;
             case '#':
-                skipLine(lexer);
+                skipToLineEnd(lexer);
                 return token.Comment;
             case EOF:
                 return token.End;
@@ -336,28 +339,28 @@ static Token readToken(Lexer* lexer) {
     assert(false);
 }
 
-static void handleError(const Lexer* lexer) {
-    assert(lexer->error.type);
+//static void handleError(const Lexer* lexer) {
+//    assert(lexer->error.type);
+//
+//    static char message[128];
+//    switch (lexer->error.type) { // only one error for now
+//        case NumberFormat:
+//            sprintf(message, "Unexpected character '%c' in a number token",
+//                    lexer->error.unexpected);
+//            break;
+//        default:
+//            assert(false);
+//    }
+//
+//    addError(lexer->programInfo,
+//             lexer->error.location,
+//             lexer->lineOffset,
+//             lexer->error.type,
+//             lexer->error.expectedToken,
+//             message);
+//}
 
-    static char message[128];
-    switch (lexer->error.type) { // only one error for now
-        case NumberFormat:
-            sprintf(message, "Unexpected character '%c' in a number token",
-                    lexer->error.unexpected);
-            break;
-        default:
-            assert(false);
-    }
-
-    addError(lexer->programInfo,
-             lexer->error.location,
-             lexer->lineOffset,
-             lexer->error.type,
-             lexer->error.expectedToken,
-             message);
-}
-
-#ifdef DEBUG
+#ifdef LifpDebug
 static void appendTokenInfo(Lexer* lexer, Token type) {
     TokenInfo info = (TokenInfo) {
         .token = type,
@@ -372,7 +375,7 @@ static void appendTokenInfo(Lexer* lexer, Token type) {
             info.real = lexer->value.real;
             break;
         case token.Identifier:
-            info.identifier = getFromStringTable(lexer->strings, lexer->value.identifierIndex);
+            info.identifier = getFromStringTable(lexer->programInfo->strings, lexer->value.identifierIndex);
             break;
         default: break;
     }
@@ -383,9 +386,10 @@ static void appendTokenInfo(Lexer* lexer, Token type) {
 Token getToken(Lexer* lexer) {
     Token result = readToken(lexer);
 
-    if (result == token.Error) {
-        handleError(lexer);
-        return getToken(lexer);
+    while (result == token.Error) {
+//        handleError(lexer);
+        result = readToken(lexer);
+//        return getToken(lexer);
     }
 
     DebugOnly(appendTokenInfo(lexer, result));

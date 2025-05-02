@@ -20,10 +20,8 @@ void initializeLexing(void);
 
 /// Use to create a new lexer object on the given file
 ///
-/// If debug mode is on, optionally provide a pointer to the `ProgramInfo` structure
-/// which contains the `tokens` array, lexer will save the processed tokens in this array.
-/// Pass `NULL` if debug mode is on but you don't want that.
-Lexer* newLexer(FILE* programInput DebugArg(ProgramInfo* info));
+/// - Parameter info: Program information, including the source text for lexing
+Lexer* newLexer(ProgramInfo* info);
 
 /// After creating a new lexer, use this function to retrieve tokens on by one from the file you gave to lexer
 Token getToken(Lexer* lexer);

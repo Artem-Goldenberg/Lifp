@@ -1,6 +1,6 @@
-// type ::= var | t1 -> t2
-// t ::= x | t t | \x.t
+# type ::= var | t1 -> t2
+# t ::= x | t t | \x.t
 
-// (setq term )
+# (setq term )
 
 (func)
