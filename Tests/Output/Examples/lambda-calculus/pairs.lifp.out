@@ -1,0 +1,64 @@
+OpenParen [2:1 - 2:1]
+Func [2:2 - 2:5]
+Identifier [2:7 - 2:12] "mkPair"
+OpenParen [2:14 - 2:14]
+Identifier [2:15 - 2:15] "a"
+Identifier [2:17 - 2:17] "b"
+CloseParen [2:18 - 2:18]
+OpenParen [3:2 - 3:2]
+Lambda [3:3 - 3:8]
+OpenParen [3:10 - 3:10]
+Identifier [3:11 - 3:11] "f"
+CloseParen [3:12 - 3:12]
+OpenParen [4:3 - 4:3]
+Identifier [4:4 - 4:4] "f"
+Identifier [4:6 - 4:6] "a"
+Identifier [4:8 - 4:8] "b"
+CloseParen [4:9 - 4:9]
+CloseParen [5:2 - 5:2]
+CloseParen [6:1 - 6:1]
+OpenParen [8:1 - 8:1]
+Func [8:2 - 8:5]
+Identifier [8:7 - 8:7] "K"
+OpenParen [8:9 - 8:9]
+Identifier [8:10 - 8:10] "x"
+Identifier [8:12 - 8:12] "y"
+CloseParen [8:13 - 8:13]
+Identifier [8:15 - 8:15] "x"
+CloseParen [8:16 - 8:16]
+OpenParen [9:1 - 9:1]
+Func [9:2 - 9:5]
+Identifier [9:7 - 9:8] "Ks"
+OpenParen [9:10 - 9:10]
+Identifier [9:11 - 9:11] "x"
+Identifier [9:13 - 9:13] "y"
+CloseParen [9:14 - 9:14]
+Identifier [9:16 - 9:16] "y"
+CloseParen [9:17 - 9:17]
+OpenParen [11:1 - 11:1]
+Func [11:2 - 11:5]
+Identifier [11:7 - 11:9] "fst"
+OpenParen [11:11 - 11:11]
+Identifier [11:12 - 11:12] "p"
+CloseParen [11:13 - 11:13]
+OpenParen [12:2 - 12:2]
+Identifier [12:3 - 12:3] "p"
+Identifier [12:5 - 12:5] "K"
+CloseParen [12:6 - 12:6]
+CloseParen [13:1 - 13:1]
+OpenParen [15:1 - 15:1]
+Func [15:2 - 15:5]
+Identifier [15:7 - 15:9] "snd"
+OpenParen [15:11 - 15:11]
+Identifier [15:12 - 15:12] "p"
+CloseParen [15:13 - 15:13]
+OpenParen [16:2 - 16:2]
+Identifier [16:3 - 16:3] "p"
+Identifier [16:5 - 16:6] "Ks"
+CloseParen [16:7 - 16:7]
+CloseParen [17:1 - 17:1]
+End [18:1 - 18:1]
+
+
+===============================
+No errors encountered in Tests/Examples/lambda-calculus/pairs.lifp

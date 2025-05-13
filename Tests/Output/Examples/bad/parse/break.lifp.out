@@ -1,0 +1,20 @@
+Comment [1:1 - 1:9]
+OpenParen [4:1 - 4:1]
+Break [4:2 - 4:6]
+CloseParen [4:7 - 4:7]
+OpenParen [5:1 - 5:1]
+True [5:2 - 5:5]
+CloseParen [5:6 - 5:6]
+OpenParen [6:1 - 6:1]
+Break [6:2 - 6:6]
+Identifier [6:8 - 6:10] "out"
+Identifier [6:12 - 6:13] "of"
+Identifier [6:15 - 6:18] "here"
+Identifier [6:20 - 6:22] "and"
+Identifier [6:24 - 6:28] "there"
+CloseParen [6:29 - 6:29]
+End [7:1 - 7:1]
+
+
+===============================
+No errors encountered in Tests/Examples/bad/parse/break.lifp

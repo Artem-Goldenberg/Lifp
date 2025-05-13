@@ -1,0 +1,268 @@
+List[3] {
+    [0] = Func {
+        name = "mergeSort"
+        parameters = (list)
+        body = Cond {
+            condition = List[2] {
+                [0] = Identifier { "not" }
+                [1] = List[2] {
+                    [0] = Identifier { "islist" }
+                    [1] = Identifier { "list" }
+                }
+            }
+            onTrue = Quote {
+                inner = List[0] {}
+            }
+            onFalse = Prog {
+                context = (merge, split)
+                body = List[6] {
+                    [0] = Func {
+                        name = "merge"
+                        parameters = (lhs, rhs)
+                        body = Prog {
+                            context = (headLhs, headRhs)
+                            body = List[3] {
+                                [0] = Setq {
+                                    variable = "headLhs"
+                                    value = List[2] {
+                                        [0] = Identifier { "head" }
+                                        [1] = Identifier { "lhs" }
+                                    }
+                                }
+                                [1] = Setq {
+                                    variable = "headRhs"
+                                    value = List[2] {
+                                        [0] = Identifier { "head" }
+                                        [1] = Identifier { "rhs" }
+                                    }
+                                }
+                                [2] = Cond {
+                                    condition = List[2] {
+                                        [0] = Identifier { "isnull" }
+                                        [1] = Identifier { "headLhs" }
+                                    }
+                                    onTrue = Return {
+                                        value = Identifier { "rhs" }
+                                    }
+                                    onFalse = Cond {
+                                        condition = List[2] {
+                                            [0] = Identifier { "isnull" }
+                                            [1] = Identifier { "headRhs" }
+                                        }
+                                        onTrue = Return {
+                                            value = Identifier { "rhs" }
+                                        }
+                                        onFalse = Cond {
+                                            condition = List[3] {
+                                                [0] = Identifier { "less" }
+                                                [1] = Identifier { "headLhs" }
+                                                [2] = Identifier { "headRhs" }
+                                            }
+                                            onTrue = Return {
+                                                value = List[3] {
+                                                    [0] = Identifier { "cons" }
+                                                    [1] = Quote {
+                                                        inner = List[1] {
+                                                            [0] = Identifier { "headLhs" }
+                                                        }
+                                                    }
+                                                    [2] = List[3] {
+                                                        [0] = Identifier { "merge" }
+                                                        [1] = List[2] {
+                                                            [0] = Identifier { "tail" }
+                                                            [1] = Identifier { "lhs" }
+                                                        }
+                                                        [2] = Identifier { "rhs" }
+                                                    }
+                                                }
+                                            }
+                                            onFalse = Return {
+                                                value = List[3] {
+                                                    [0] = Identifier { "cons" }
+                                                    [1] = List[1] {
+                                                        [0] = Quote {
+                                                            inner = Identifier { "headRhs" }
+                                                        }
+                                                    }
+                                                    [2] = List[3] {
+                                                        [0] = Identifier { "merge" }
+                                                        [1] = Identifier { "lhs" }
+                                                        [2] = List[2] {
+                                                            [0] = Identifier { "tail" }
+                                                            [1] = Identifier { "rhs" }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    [1] = Func {
+                        name = "split"
+                        parameters = (list)
+                        body = Prog {
+                            context = (l)
+                            body = List[6] {
+                                [0] = Setq {
+                                    variable = "l"
+                                    value = List[2] {
+                                        [0] = Identifier { "length" }
+                                        [1] = Identifier { "list" }
+                                    }
+                                }
+                                [1] = Setq {
+                                    variable = "left"
+                                    value = Quote {
+                                        inner = List[0] {}
+                                    }
+                                }
+                                [2] = Setq {
+                                    variable = "right"
+                                    value = Identifier { "list" }
+                                }
+                                [3] = Setq {
+                                    variable = "i"
+                                    value = Integer { 0 }
+                                }
+                                [4] = While {
+                                    condition = List[3] {
+                                        [0] = Identifier { "less" }
+                                        [1] = Identifier { "i" }
+                                        [2] = List[3] {
+                                            [0] = Identifier { "divide" }
+                                            [1] = List[3] {
+                                                [0] = Identifier { "plus" }
+                                                [1] = Identifier { "l" }
+                                                [2] = List[3] {
+                                                    [0] = Identifier { "mod" }
+                                                    [1] = Identifier { "l" }
+                                                    [2] = Integer { 2 }
+                                                }
+                                            }
+                                            [2] = Integer { 2 }
+                                        }
+                                    }
+                                    body = Prog {
+                                        context = ()
+                                        body = List[3] {
+                                            [0] = Setq {
+                                                variable = "element"
+                                                value = List[2] {
+                                                    [0] = Identifier { "head" }
+                                                    [1] = Identifier { "right" }
+                                                }
+                                            }
+                                            [1] = Setq {
+                                                variable = "left"
+                                                value = List[4] {
+                                                    [0] = Identifier { "cons" }
+                                                    [1] = Identifier { "left" }
+                                                    [2] = Identifier { "`" }
+                                                    [3] = List[1] {
+                                                        [0] = Identifier { "element" }
+                                                    }
+                                                }
+                                            }
+                                            [2] = Setq {
+                                                variable = "right"
+                                                value = List[2] {
+                                                    [0] = Identifier { "tail" }
+                                                    [1] = Identifier { "right" }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                [5] = Return {
+                                    value = Quote {
+                                        inner = List[2] {
+                                            [0] = Identifier { "left" }
+                                            [1] = Identifier { "right" }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    [2] = Setq {
+                        variable = "parts"
+                        value = List[2] {
+                            [0] = Identifier { "split" }
+                            [1] = Identifier { "list" }
+                        }
+                    }
+                    [3] = Setq {
+                        variable = "lhs"
+                        value = List[2] {
+                            [0] = Identifier { "mergeSort" }
+                            [1] = List[2] {
+                                [0] = Identifier { "head" }
+                                [1] = Identifier { "parts" }
+                            }
+                        }
+                    }
+                    [4] = Setq {
+                        variable = "ths"
+                        value = List[2] {
+                            [0] = Identifier { "mergeSort" }
+                            [1] = List[2] {
+                                [0] = Identifier { "head" }
+                                [1] = List[2] {
+                                    [0] = Identifier { "tail" }
+                                    [1] = Identifier { "parts" }
+                                }
+                            }
+                        }
+                    }
+                    [5] = Return {
+                        value = List[3] {
+                            [0] = Identifier { "merge" }
+                            [1] = Identifier { "lhs" }
+                            [2] = Identifier { "rhs" }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    [1] = List[2] {
+        [0] = Identifier { "mergeSort" }
+        [1] = Quote {
+            inner = List[11] {
+                [0] = Integer { 3 }
+                [1] = Integer { 1 }
+                [2] = Integer { 4 }
+                [3] = Integer { 1 }
+                [4] = Integer { 5 }
+                [5] = Integer { 9 }
+                [6] = Integer { 2 }
+                [7] = Integer { 6 }
+                [8] = Integer { 5 }
+                [9] = Integer { 3 }
+                [10] = Integer { 5 }
+            }
+        }
+    }
+    [2] = List[2] {
+        [0] = Identifier { "mergeSort" }
+        [1] = Quote {
+            inner = List[11] {
+                [0] = Integer { -33 }
+                [1] = Integer { 1500 }
+                [2] = Real { -5.13 }
+                [3] = Integer { 23 }
+                [4] = Integer { 9005 }
+                [5] = Integer { -49 }
+                [6] = Real { -200.13 }
+                [7] = Integer { 6 }
+                [8] = Integer { 5 }
+                [9] = Integer { 2 }
+                [10] = Integer { 5 }
+            }
+        }
+    }
+}
+hereProgram ended with exit code: 0

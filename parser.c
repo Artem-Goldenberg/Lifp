@@ -5,11 +5,6 @@
 #include <assert.h>
 #include <stdlib.h>
 
-#include "Lifp.h"
-#include "Lexer.h"
-#include "Syntax.h"
-#include "Printer.h"
-
 #include "Utils.h"
 #include "Lifp.tab.h"
 
@@ -30,35 +25,71 @@ yytoken_kind_t translation[TokensCount] = {
     [token.False] = FALSE,
     [token.Null] = NIL,
     [token.QuoteSymbol] = QUOTESYMBOL,
-    [token.OpenParen] = OPENPAREN,
-    [token.CloseParen] = CLOSEPAREN,
-    [token.Comment] = COMMENT,
+    [token.OpenParen] = '(',
+    [token.CloseParen] = ')',
+//    [token.QuoteSymbol] = QUOTESYMBOL,
+//    [token.OpenParen] = OPENPAREN,
+//    [token.CloseParen] = CLOSEPAREN,
+    [token.End] = YYEOF
 };
 
 int yylex(void) {
-    Token t = getToken(lexer);
-    assert(t < TokensCount);
+    Token t;
+
+    // skip all commentss
+    do {
+        t = getToken(lexer);
+        assert(t < TokensCount);
+    } while (t == token.Comment);
+
+    // set yylval if tokens has a value
+    switch (t) {
+        case token.Integer:
+            yylval.INTEGER = getInteger(lexer);
+            break;
+        case token.Real:
+            yylval.REAL = getReal(lexer);
+            break;
+        case token.Identifier:
+            yylval.IDENTIFIER = getIdentifier(lexer);
+            break;
+        default: break;
+    }
+
     return translation[t];
 }
 
-void yyerror(List** root, const char* message) {
-    fprintf(stderr, "%s\n", message);
+void yyerror(ProgramInfo* program, const char* message) {
+    Issue error = {
+        .type = issueType.SyntaxError,
+        .start = getTokenStartLocation(lexer),
+        .end = getCurrentLocation(lexer),
+        .data = {
+            .generalError = (GeneralError) {
+                .message = strdup(message)
+            }
+        }
+    };
+    addIssue(program, &error);
+//    fprintf(stderr, "%s\n", message);
 }
 
 int main(int argc, const char* argv[]) {
-
-    int abc = 30;
-    int b = 30;
-
-    int a = JTConcat(b);
-
     int err = initialize(argv[1]);
-    if (err) return err;
+    if (err) {
+        printf("Provide file to parse!\n");
+        return err;
+    }
 
-    List* root;
-    yyparse(&root);
+    yyparse(program);
 
-    printf("here");
+    reportErrors(program, stderr);
+
+    PresentationContext context = {
+        .out = stdout,
+    };
+
+    print((Element*)program->syntaxRoot, &context);
 
     return 0;
 }

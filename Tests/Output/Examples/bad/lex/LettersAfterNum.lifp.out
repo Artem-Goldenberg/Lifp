@@ -1,0 +1,28 @@
+Comment [1:26 - 1:47]
+End [11:1 - 11:1]
+
+
+===============================
+5 issues found in Tests/Examples/bad/lex/LettersAfterNum.lifp:
+
+[1:9 - 1:24] In 'Real' token: unexpected character 'w', was expecting a digit
+1 | 123.3203wefijwefoijeoifj # letters after number
+            ^~~~~~~~~~~~~~~~
+
+[3:4 - 3:7] In 'Integer' token: unexpected character '+', was expecting a digit or a '.'
+3 | 124+390
+       ^~~~
+
+[5:4 - 5:5] In 'Real' token: unexpected character '+', was expecting a digit
+5 | 1.0++
+       ^~
+
+[7:5 - 7:8] In 'Real' token: unexpected character '.', was expecting a digit
+7 | 1.32.432
+        ^~~~
+
+[9:3 - 9:4] In 'Real' token: unexpected character '.', was expecting a digit
+9 | 1..2
+      ^~
+
+

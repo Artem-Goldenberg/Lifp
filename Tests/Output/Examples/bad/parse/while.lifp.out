@@ -1,0 +1,24 @@
+Identifier [1:1 - 1:2] "//"
+OpenParen [1:4 - 1:4]
+While [1:5 - 1:9]
+Identifier [1:11 - 1:17] "Element"
+Identifier [1:19 - 1:25] "Element"
+CloseParen [1:26 - 1:26]
+OpenParen [3:1 - 3:1]
+While [3:2 - 3:6]
+CloseParen [3:7 - 3:7]
+OpenParen [4:1 - 4:1]
+While [4:2 - 4:6]
+Identifier [4:8 - 4:8] "a"
+CloseParen [4:9 - 4:9]
+OpenParen [5:1 - 5:1]
+While [5:2 - 5:6]
+Identifier [5:8 - 5:10] "way"
+Identifier [5:12 - 5:14] "too"
+Identifier [5:16 - 5:19] "much"
+CloseParen [5:20 - 5:20]
+End [6:1 - 6:1]
+
+
+===============================
+No errors encountered in Tests/Examples/bad/parse/while.lifp

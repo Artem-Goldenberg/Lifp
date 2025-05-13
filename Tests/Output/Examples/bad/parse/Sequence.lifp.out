@@ -1,0 +1,8 @@
+Identifier [1:1 - 1:3] "seq"
+Identifier [1:5 - 1:5] "u"
+Identifier [1:7 - 1:10] "ence"
+End [2:1 - 2:1]
+
+
+===============================
+No errors encountered in Tests/Examples/bad/parse/Sequence.lifp

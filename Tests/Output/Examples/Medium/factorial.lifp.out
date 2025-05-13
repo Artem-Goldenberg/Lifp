@@ -1,0 +1,48 @@
+OpenParen [1:1 - 1:1]
+Func [1:2 - 1:5]
+Identifier [1:7 - 1:17] "myFactorial"
+OpenParen [1:19 - 1:19]
+Identifier [1:20 - 1:20] "N"
+CloseParen [1:21 - 1:21]
+OpenParen [2:5 - 2:5]
+Cond [2:6 - 2:9]
+OpenParen [2:11 - 2:11]
+Identifier [2:12 - 2:17] "lesseq"
+Identifier [2:19 - 2:19] "N"
+Integer [2:21 - 2:21] 1
+CloseParen [2:22 - 2:22]
+Integer [3:9 - 3:9] 1
+OpenParen [4:9 - 4:9]
+Identifier [4:10 - 4:14] "times"
+Identifier [4:16 - 4:16] "N"
+OpenParen [4:18 - 4:18]
+Identifier [4:19 - 4:29] "myFactorial"
+OpenParen [4:31 - 4:31]
+Identifier [4:32 - 4:36] "minus"
+Identifier [4:38 - 4:38] "N"
+Integer [4:40 - 4:40] 1
+CloseParen [4:41 - 4:41]
+CloseParen [4:42 - 4:42]
+CloseParen [4:43 - 4:43]
+CloseParen [5:5 - 5:5]
+CloseParen [6:1 - 6:1]
+OpenParen [8:1 - 8:1]
+Identifier [8:2 - 8:12] "myFactorial"
+Integer [8:14 - 8:14] 1
+CloseParen [8:15 - 8:15]
+Comment [8:17 - 8:19]
+OpenParen [9:1 - 9:1]
+Identifier [9:2 - 9:12] "myFactorial"
+Integer [9:14 - 9:14] 5
+CloseParen [9:15 - 9:15]
+Comment [9:17 - 9:20]
+OpenParen [10:1 - 10:1]
+Identifier [10:2 - 10:12] "myFactorial"
+Integer [10:14 - 10:15] 10
+CloseParen [10:16 - 10:16]
+Comment [10:18 - 10:26]
+End [11:1 - 11:1]
+
+
+===============================
+No errors encountered in Tests/Examples/Medium/factorial.lifp

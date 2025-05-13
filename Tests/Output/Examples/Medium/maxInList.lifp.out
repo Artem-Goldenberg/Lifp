@@ -1,0 +1,94 @@
+OpenParen [1:1 - 1:1]
+Func [1:2 - 1:5]
+Identifier [1:7 - 1:15] "maxInList"
+OpenParen [1:17 - 1:17]
+Identifier [1:18 - 1:21] "list"
+CloseParen [1:22 - 1:22]
+OpenParen [2:5 - 2:5]
+Cond [2:6 - 2:9]
+OpenParen [2:11 - 2:11]
+Identifier [2:12 - 2:14] "not"
+OpenParen [2:16 - 2:16]
+Identifier [2:17 - 2:22] "islist"
+Identifier [2:24 - 2:27] "list"
+CloseParen [2:28 - 2:28]
+CloseParen [2:29 - 2:29]
+Null [3:9 - 3:12]
+OpenParen [4:9 - 4:9]
+Prog [4:10 - 4:13]
+OpenParen [4:15 - 4:15]
+CloseParen [4:16 - 4:16]
+OpenParen [5:13 - 5:13]
+Setq [5:14 - 5:17]
+Identifier [5:19 - 5:19] "h"
+OpenParen [5:21 - 5:21]
+Identifier [5:22 - 5:25] "head"
+Identifier [5:27 - 5:30] "list"
+CloseParen [5:31 - 5:31]
+CloseParen [5:32 - 5:32]
+OpenParen [6:13 - 6:13]
+Setq [6:14 - 6:17]
+Identifier [6:19 - 6:19] "t"
+OpenParen [6:21 - 6:21]
+Identifier [6:22 - 6:25] "tail"
+Identifier [6:27 - 6:30] "list"
+CloseParen [6:31 - 6:31]
+CloseParen [6:32 - 6:32]
+OpenParen [7:13 - 7:13]
+Cond [7:14 - 7:17]
+OpenParen [7:19 - 7:19]
+Identifier [7:20 - 7:25] "isnull"
+Identifier [7:27 - 7:27] "t"
+CloseParen [7:28 - 7:28]
+OpenParen [8:17 - 8:17]
+Return [8:18 - 8:23]
+Identifier [8:25 - 8:25] "h"
+CloseParen [8:26 - 8:26]
+OpenParen [9:17 - 9:17]
+Cond [9:18 - 9:21]
+OpenParen [9:23 - 9:23]
+Identifier [9:24 - 9:27] "less"
+Identifier [9:29 - 9:29] "h"
+Identifier [9:31 - 9:31] "t"
+CloseParen [9:32 - 9:32]
+OpenParen [10:21 - 10:21]
+Return [10:22 - 10:27]
+Identifier [10:29 - 10:29] "t"
+CloseParen [10:30 - 10:30]
+OpenParen [11:21 - 11:21]
+Return [11:22 - 11:27]
+Identifier [11:29 - 11:29] "h"
+CloseParen [11:30 - 11:30]
+CloseParen [12:17 - 12:17]
+CloseParen [13:14 - 13:14]
+CloseParen [14:9 - 14:9]
+CloseParen [15:5 - 15:5]
+CloseParen [16:1 - 16:1]
+OpenParen [18:1 - 18:1]
+Identifier [18:2 - 18:10] "maxInList"
+QuoteSymbol [18:12 - 18:12]
+OpenParen [18:13 - 18:13]
+Integer [18:14 - 18:14] 1
+Integer [18:16 - 18:16] 2
+Integer [18:18 - 18:18] 3
+Integer [18:20 - 18:20] 4
+Integer [18:22 - 18:22] 5
+CloseParen [18:23 - 18:23]
+CloseParen [18:24 - 18:24]
+Comment [18:26 - 18:28]
+OpenParen [19:1 - 19:1]
+Identifier [19:2 - 19:10] "maxInList"
+QuoteSymbol [19:12 - 19:12]
+OpenParen [19:13 - 19:13]
+Integer [19:14 - 19:17] -100
+Integer [19:19 - 19:21] 123
+Integer [19:23 - 19:24] 99
+Integer [19:26 - 19:26] 2
+CloseParen [19:27 - 19:27]
+CloseParen [19:28 - 19:28]
+Comment [19:30 - 19:34]
+End [20:1 - 20:1]
+
+
+===============================
+No errors encountered in Tests/Examples/Medium/maxInList.lifp

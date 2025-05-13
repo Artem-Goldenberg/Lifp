@@ -1,0 +1,66 @@
+OpenParen [1:1 - 1:1]
+Func [1:2 - 1:5]
+Identifier [1:7 - 1:9] "mod"
+OpenParen [1:11 - 1:11]
+Identifier [1:12 - 1:12] "a"
+Identifier [1:14 - 1:14] "b"
+CloseParen [1:15 - 1:15]
+OpenParen [2:5 - 2:5]
+Cond [2:6 - 2:9]
+OpenParen [2:11 - 2:11]
+Identifier [2:12 - 2:16] "equal"
+Identifier [2:18 - 2:18] "b"
+Integer [2:20 - 2:20] 0
+CloseParen [2:21 - 2:21]
+Null [3:9 - 3:12]
+OpenParen [4:9 - 4:9]
+Identifier [4:10 - 4:14] "minus"
+Identifier [4:16 - 4:16] "a"
+OpenParen [4:18 - 4:18]
+Identifier [4:19 - 4:23] "times"
+Identifier [4:25 - 4:25] "b"
+OpenParen [4:27 - 4:27]
+Identifier [4:28 - 4:33] "divide"
+Identifier [4:35 - 4:35] "a"
+Identifier [4:37 - 4:37] "b"
+CloseParen [4:38 - 4:38]
+CloseParen [4:39 - 4:39]
+CloseParen [4:40 - 4:40]
+CloseParen [5:5 - 5:5]
+CloseParen [6:1 - 6:1]
+OpenParen [8:1 - 8:1]
+Func [8:2 - 8:5]
+Identifier [8:7 - 8:9] "gcd"
+OpenParen [8:11 - 8:11]
+Identifier [8:12 - 8:12] "a"
+Identifier [8:14 - 8:14] "b"
+CloseParen [8:15 - 8:15]
+OpenParen [9:5 - 9:5]
+Cond [9:6 - 9:9]
+OpenParen [9:11 - 9:11]
+Identifier [9:12 - 9:16] "equal"
+Identifier [9:18 - 9:18] "b"
+Integer [9:20 - 9:20] 0
+CloseParen [9:21 - 9:21]
+Identifier [10:7 - 10:7] "a"
+OpenParen [11:7 - 11:7]
+Identifier [11:8 - 11:10] "gcd"
+Identifier [11:12 - 11:12] "b"
+OpenParen [11:14 - 11:14]
+Identifier [11:15 - 11:17] "mod"
+Identifier [11:19 - 11:19] "a"
+Identifier [11:21 - 11:21] "b"
+CloseParen [11:22 - 11:22]
+CloseParen [11:23 - 11:23]
+CloseParen [12:5 - 12:5]
+CloseParen [13:1 - 13:1]
+OpenParen [15:1 - 15:1]
+Identifier [15:2 - 15:4] "gcd"
+Integer [15:6 - 15:7] 15
+Integer [15:9 - 15:10] 10
+CloseParen [15:11 - 15:11]
+End [16:1 - 16:1]
+
+
+===============================
+No errors encountered in Tests/Examples/Medium/gcd.lifp

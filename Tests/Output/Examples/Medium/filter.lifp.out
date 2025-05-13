@@ -1,0 +1,116 @@
+OpenParen [1:1 - 1:1]
+Func [1:2 - 1:5]
+Identifier [1:7 - 1:12] "filter"
+OpenParen [1:14 - 1:14]
+Identifier [1:15 - 1:18] "list"
+Identifier [1:20 - 1:23] "pred"
+CloseParen [1:24 - 1:24]
+OpenParen [2:5 - 2:5]
+Cond [2:6 - 2:9]
+OpenParen [2:11 - 2:11]
+Identifier [2:12 - 2:14] "not"
+OpenParen [2:16 - 2:16]
+Identifier [2:17 - 2:22] "islist"
+Identifier [2:24 - 2:27] "list"
+CloseParen [2:28 - 2:28]
+CloseParen [2:29 - 2:29]
+QuoteSymbol [3:9 - 3:9]
+OpenParen [3:10 - 3:10]
+CloseParen [3:11 - 3:11]
+OpenParen [4:9 - 4:9]
+Cond [4:10 - 4:13]
+OpenParen [4:15 - 4:15]
+Identifier [4:16 - 4:19] "pred"
+OpenParen [4:21 - 4:21]
+Identifier [4:22 - 4:25] "head"
+Identifier [4:27 - 4:30] "list"
+CloseParen [4:31 - 4:31]
+CloseParen [4:32 - 4:32]
+OpenParen [5:13 - 5:13]
+Identifier [5:14 - 5:17] "cons"
+OpenParen [5:19 - 5:19]
+Identifier [5:20 - 5:23] "head"
+Identifier [5:25 - 5:28] "list"
+CloseParen [5:29 - 5:29]
+OpenParen [5:31 - 5:31]
+Identifier [5:32 - 5:37] "filter"
+OpenParen [5:39 - 5:39]
+Identifier [5:40 - 5:43] "tail"
+Identifier [5:45 - 5:48] "list"
+CloseParen [5:49 - 5:49]
+Identifier [5:51 - 5:54] "pred"
+CloseParen [5:55 - 5:55]
+CloseParen [5:56 - 5:56]
+OpenParen [6:13 - 6:13]
+Identifier [6:14 - 6:19] "filter"
+OpenParen [6:21 - 6:21]
+Identifier [6:22 - 6:25] "tail"
+Identifier [6:27 - 6:30] "list"
+CloseParen [6:31 - 6:31]
+Identifier [6:33 - 6:36] "pred"
+CloseParen [6:37 - 6:37]
+CloseParen [7:9 - 7:9]
+CloseParen [8:5 - 8:5]
+CloseParen [9:1 - 9:1]
+OpenParen [11:1 - 11:1]
+Identifier [11:2 - 11:7] "filter"
+QuoteSymbol [11:9 - 11:9]
+OpenParen [11:10 - 11:10]
+Integer [11:11 - 11:11] 1
+Integer [11:13 - 11:13] 2
+Integer [11:15 - 11:15] 3
+Real [11:17 - 11:24] 123.321
+False [11:26 - 11:30]
+Integer [11:32 - 11:34] -36
+CloseParen [11:35 - 11:35]
+OpenParen [11:37 - 11:37]
+Lambda [11:38 - 11:43]
+OpenParen [11:45 - 11:45]
+Identifier [11:46 - 11:52] "element"
+CloseParen [11:53 - 11:53]
+OpenParen [11:55 - 11:55]
+Identifier [11:56 - 11:60] "isint"
+Identifier [11:62 - 11:68] "element"
+CloseParen [11:69 - 11:69]
+CloseParen [11:70 - 11:70]
+CloseParen [11:71 - 11:71]
+Comment [11:73 - 11:85]
+Comment [12:2 - 12:10]
+OpenParen [13:1 - 13:1]
+Identifier [13:2 - 13:7] "filter"
+QuoteSymbol [13:9 - 13:9]
+OpenParen [13:10 - 13:10]
+Integer [13:11 - 13:11] 1
+Integer [13:13 - 13:13] 2
+Integer [13:15 - 13:15] 3
+Integer [13:17 - 13:17] 4
+Integer [13:19 - 13:19] 5
+Integer [13:21 - 13:21] 6
+Integer [13:23 - 13:23] 7
+Integer [13:25 - 13:25] 8
+CloseParen [13:26 - 13:26]
+OpenParen [13:28 - 13:28]
+Lambda [13:29 - 13:34]
+OpenParen [13:36 - 13:36]
+Identifier [13:37 - 13:43] "element"
+CloseParen [13:44 - 13:44]
+OpenParen [13:46 - 13:46]
+Identifier [13:47 - 13:49] "and"
+OpenParen [13:51 - 13:51]
+Identifier [13:52 - 13:55] "less"
+Identifier [13:57 - 13:63] "element"
+Integer [13:65 - 13:65] 5
+CloseParen [13:66 - 13:66]
+OpenParen [13:68 - 13:68]
+Identifier [13:69 - 13:75] "greater"
+Identifier [13:77 - 13:83] "element"
+Integer [13:85 - 13:85] 1
+CloseParen [13:86 - 13:86]
+CloseParen [13:87 - 13:87]
+CloseParen [13:88 - 13:88]
+CloseParen [13:89 - 13:89]
+End [15:1 - 15:1]
+
+
+===============================
+No errors encountered in Tests/Examples/Medium/filter.lifp

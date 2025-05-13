@@ -1,0 +1,330 @@
+Comment [1:1 - 1:1]
+Comment [2:1 - 2:2]
+Comment [3:1 - 3:20]
+Comment [4:1 - 4:30]
+Comment [5:1 - 5:10]
+Comment [6:1 - 6:38]
+Comment [7:1 - 7:6]
+Comment [8:1 - 8:2]
+Comment [9:1 - 9:1]
+Comment [10:1 - 10:1]
+Comment [11:1 - 11:1]
+Comment [12:1 - 12:16]
+Comment [13:1 - 13:21]
+Comment [14:1 - 14:10]
+Comment [15:1 - 15:28]
+Comment [16:1 - 16:7]
+Comment [17:1 - 17:2]
+OpenParen [19:1 - 19:1]
+Func [19:2 - 19:5]
+Identifier [19:7 - 19:15] "mergeSort"
+OpenParen [19:17 - 19:17]
+Identifier [19:18 - 19:21] "list"
+CloseParen [19:22 - 19:22]
+OpenParen [20:5 - 20:5]
+Cond [20:6 - 20:9]
+OpenParen [20:11 - 20:11]
+Identifier [20:12 - 20:14] "not"
+OpenParen [20:16 - 20:16]
+Identifier [20:17 - 20:22] "islist"
+Identifier [20:24 - 20:27] "list"
+CloseParen [20:28 - 20:28]
+CloseParen [20:29 - 20:29]
+QuoteSymbol [21:9 - 21:9]
+OpenParen [21:10 - 21:10]
+CloseParen [21:11 - 21:11]
+OpenParen [22:9 - 22:9]
+Prog [22:10 - 22:13]
+OpenParen [22:15 - 22:15]
+Identifier [22:16 - 22:20] "merge"
+Identifier [22:22 - 22:26] "split"
+CloseParen [22:27 - 22:27]
+OpenParen [23:4 - 23:4]
+OpenParen [24:5 - 24:5]
+Func [24:6 - 24:9]
+Identifier [24:11 - 24:15] "merge"
+OpenParen [24:17 - 24:17]
+Identifier [24:18 - 24:20] "lhs"
+Identifier [24:22 - 24:24] "rhs"
+CloseParen [24:25 - 24:25]
+OpenParen [25:6 - 25:6]
+Prog [25:7 - 25:10]
+OpenParen [25:12 - 25:12]
+Identifier [25:13 - 25:19] "headLhs"
+Identifier [25:21 - 25:27] "headRhs"
+CloseParen [25:28 - 25:28]
+Comment [26:1 - 26:8]
+OpenParen [27:8 - 27:8]
+Setq [27:9 - 27:12]
+Identifier [27:14 - 27:20] "headLhs"
+OpenParen [27:22 - 27:22]
+Identifier [27:23 - 27:26] "head"
+Identifier [27:28 - 27:30] "lhs"
+CloseParen [27:31 - 27:31]
+CloseParen [27:32 - 27:32]
+OpenParen [28:8 - 28:8]
+Setq [28:9 - 28:12]
+Identifier [28:14 - 28:20] "headRhs"
+OpenParen [28:22 - 28:22]
+Identifier [28:23 - 28:26] "head"
+Identifier [28:28 - 28:30] "rhs"
+CloseParen [28:31 - 28:31]
+CloseParen [28:32 - 28:32]
+OpenParen [29:8 - 29:8]
+Cond [29:9 - 29:12]
+OpenParen [29:14 - 29:14]
+Identifier [29:15 - 29:20] "isnull"
+Identifier [29:22 - 29:28] "headLhs"
+CloseParen [29:29 - 29:29]
+OpenParen [30:9 - 30:9]
+Return [30:10 - 30:15]
+Identifier [30:17 - 30:19] "rhs"
+CloseParen [30:20 - 30:20]
+OpenParen [31:9 - 31:9]
+Cond [31:10 - 31:13]
+OpenParen [31:15 - 31:15]
+Identifier [31:16 - 31:21] "isnull"
+Identifier [31:23 - 31:29] "headRhs"
+CloseParen [31:30 - 31:30]
+OpenParen [32:10 - 32:10]
+Return [32:11 - 32:16]
+Identifier [32:18 - 32:20] "rhs"
+CloseParen [32:21 - 32:21]
+OpenParen [33:10 - 33:10]
+Cond [33:11 - 33:14]
+OpenParen [33:16 - 33:16]
+Identifier [33:17 - 33:20] "less"
+Identifier [33:22 - 33:28] "headLhs"
+Identifier [33:30 - 33:36] "headRhs"
+CloseParen [33:37 - 33:37]
+OpenParen [34:11 - 34:11]
+Return [34:12 - 34:17]
+OpenParen [34:19 - 34:19]
+Identifier [34:20 - 34:23] "cons"
+QuoteSymbol [34:25 - 34:25]
+OpenParen [34:26 - 34:26]
+Identifier [34:27 - 34:33] "headLhs"
+CloseParen [34:34 - 34:34]
+OpenParen [34:36 - 34:36]
+Identifier [34:37 - 34:41] "merge"
+OpenParen [34:43 - 34:43]
+Identifier [34:44 - 34:47] "tail"
+Identifier [34:49 - 34:51] "lhs"
+CloseParen [34:52 - 34:52]
+Identifier [34:54 - 34:56] "rhs"
+CloseParen [34:57 - 34:57]
+CloseParen [34:58 - 34:58]
+CloseParen [34:59 - 34:59]
+OpenParen [35:11 - 35:11]
+Return [35:12 - 35:17]
+OpenParen [35:19 - 35:19]
+Identifier [35:20 - 35:23] "cons"
+OpenParen [35:25 - 35:25]
+QuoteSymbol [35:26 - 35:26]
+Identifier [35:27 - 35:33] "headRhs"
+CloseParen [35:34 - 35:34]
+OpenParen [35:36 - 35:36]
+Identifier [35:37 - 35:41] "merge"
+Identifier [35:43 - 35:45] "lhs"
+OpenParen [35:47 - 35:47]
+Identifier [35:48 - 35:51] "tail"
+Identifier [35:53 - 35:55] "rhs"
+CloseParen [35:56 - 35:56]
+CloseParen [35:57 - 35:57]
+CloseParen [35:58 - 35:58]
+CloseParen [35:59 - 35:59]
+CloseParen [36:10 - 36:10]
+CloseParen [37:9 - 37:9]
+CloseParen [38:8 - 38:8]
+Comment [39:1 - 39:8]
+CloseParen [40:6 - 40:6]
+CloseParen [41:5 - 41:5]
+OpenParen [42:5 - 42:5]
+Func [42:6 - 42:9]
+Identifier [42:11 - 42:15] "split"
+OpenParen [42:17 - 42:17]
+Identifier [42:18 - 42:21] "list"
+CloseParen [42:22 - 42:22]
+OpenParen [43:6 - 43:6]
+Prog [43:7 - 43:10]
+OpenParen [43:12 - 43:12]
+Identifier [43:13 - 43:13] "l"
+CloseParen [43:14 - 43:14]
+OpenParen [44:7 - 44:7]
+OpenParen [45:8 - 45:8]
+Setq [45:9 - 45:12]
+Identifier [45:14 - 45:14] "l"
+OpenParen [45:16 - 45:16]
+Identifier [45:17 - 45:22] "length"
+Identifier [45:24 - 45:27] "list"
+CloseParen [45:28 - 45:28]
+CloseParen [45:29 - 45:29]
+OpenParen [46:8 - 46:8]
+Setq [46:9 - 46:12]
+Identifier [46:14 - 46:17] "left"
+QuoteSymbol [46:19 - 46:19]
+OpenParen [46:20 - 46:20]
+CloseParen [46:21 - 46:21]
+CloseParen [46:22 - 46:22]
+OpenParen [47:8 - 47:8]
+Setq [47:9 - 47:12]
+Identifier [47:14 - 47:18] "right"
+Identifier [47:20 - 47:23] "list"
+CloseParen [47:24 - 47:24]
+OpenParen [48:8 - 48:8]
+Setq [48:9 - 48:12]
+Identifier [48:14 - 48:14] "i"
+Integer [48:16 - 48:16] 0
+CloseParen [48:17 - 48:17]
+OpenParen [49:8 - 49:8]
+While [49:9 - 49:13]
+OpenParen [49:15 - 49:15]
+Identifier [49:16 - 49:19] "less"
+Identifier [49:21 - 49:21] "i"
+OpenParen [49:23 - 49:23]
+Identifier [49:24 - 49:29] "divide"
+OpenParen [49:31 - 49:31]
+Identifier [49:32 - 49:35] "plus"
+Identifier [49:37 - 49:37] "l"
+OpenParen [49:39 - 49:39]
+Identifier [49:40 - 49:42] "mod"
+Identifier [49:44 - 49:44] "l"
+Integer [49:46 - 49:46] 2
+CloseParen [49:47 - 49:47]
+CloseParen [49:48 - 49:48]
+Integer [49:50 - 49:50] 2
+CloseParen [49:51 - 49:51]
+CloseParen [49:52 - 49:52]
+OpenParen [50:9 - 50:9]
+Prog [50:10 - 50:13]
+OpenParen [50:15 - 50:15]
+CloseParen [50:16 - 50:16]
+OpenParen [51:10 - 51:10]
+OpenParen [52:11 - 52:11]
+Setq [52:12 - 52:15]
+Identifier [52:17 - 52:23] "element"
+OpenParen [52:25 - 52:25]
+Identifier [52:26 - 52:29] "head"
+Identifier [52:31 - 52:35] "right"
+CloseParen [52:36 - 52:36]
+CloseParen [52:37 - 52:37]
+OpenParen [53:11 - 53:11]
+Setq [53:12 - 53:15]
+Identifier [53:17 - 53:20] "left"
+OpenParen [53:22 - 53:22]
+Identifier [53:23 - 53:26] "cons"
+Identifier [53:28 - 53:31] "left"
+Identifier [53:33 - 53:33] "`"
+OpenParen [53:34 - 53:34]
+Identifier [53:35 - 53:41] "element"
+CloseParen [53:42 - 53:42]
+CloseParen [53:43 - 53:43]
+CloseParen [53:44 - 53:44]
+OpenParen [54:11 - 54:11]
+Setq [54:12 - 54:15]
+Identifier [54:17 - 54:21] "right"
+OpenParen [54:23 - 54:23]
+Identifier [54:24 - 54:27] "tail"
+Identifier [54:29 - 54:33] "right"
+CloseParen [54:34 - 54:34]
+CloseParen [54:35 - 54:35]
+CloseParen [55:10 - 55:10]
+CloseParen [56:9 - 56:9]
+CloseParen [57:8 - 57:8]
+OpenParen [58:8 - 58:8]
+Return [58:9 - 58:14]
+QuoteSymbol [58:16 - 58:16]
+OpenParen [58:17 - 58:17]
+Identifier [58:18 - 58:21] "left"
+Identifier [58:23 - 58:27] "right"
+CloseParen [58:28 - 58:28]
+CloseParen [58:29 - 58:29]
+CloseParen [59:7 - 59:7]
+CloseParen [60:6 - 60:6]
+CloseParen [61:5 - 61:5]
+OpenParen [62:5 - 62:5]
+Setq [62:6 - 62:9]
+Identifier [62:11 - 62:15] "parts"
+OpenParen [62:17 - 62:17]
+Identifier [62:18 - 62:22] "split"
+Identifier [62:24 - 62:27] "list"
+CloseParen [62:28 - 62:28]
+CloseParen [62:29 - 62:29]
+OpenParen [63:5 - 63:5]
+Setq [63:6 - 63:9]
+Identifier [63:11 - 63:13] "lhs"
+OpenParen [63:15 - 63:15]
+Identifier [63:16 - 63:24] "mergeSort"
+OpenParen [63:26 - 63:26]
+Identifier [63:27 - 63:30] "head"
+Identifier [63:32 - 63:36] "parts"
+CloseParen [63:37 - 63:37]
+CloseParen [63:38 - 63:38]
+CloseParen [63:39 - 63:39]
+OpenParen [64:5 - 64:5]
+Setq [64:6 - 64:9]
+Identifier [64:11 - 64:13] "ths"
+OpenParen [64:15 - 64:15]
+Identifier [64:16 - 64:24] "mergeSort"
+OpenParen [64:26 - 64:26]
+Identifier [64:27 - 64:30] "head"
+OpenParen [64:32 - 64:32]
+Identifier [64:33 - 64:36] "tail"
+Identifier [64:38 - 64:42] "parts"
+CloseParen [64:43 - 64:43]
+CloseParen [64:44 - 64:44]
+CloseParen [64:45 - 64:45]
+CloseParen [64:46 - 64:46]
+OpenParen [65:5 - 65:5]
+Return [65:6 - 65:11]
+OpenParen [65:13 - 65:13]
+Identifier [65:14 - 65:18] "merge"
+Identifier [65:20 - 65:22] "lhs"
+Identifier [65:24 - 65:26] "rhs"
+CloseParen [65:27 - 65:27]
+CloseParen [65:28 - 65:28]
+CloseParen [66:4 - 66:4]
+CloseParen [67:9 - 67:9]
+CloseParen [68:5 - 68:5]
+CloseParen [69:1 - 69:1]
+OpenParen [73:1 - 73:1]
+Identifier [73:2 - 73:10] "mergeSort"
+QuoteSymbol [73:12 - 73:12]
+OpenParen [73:13 - 73:13]
+Integer [73:14 - 73:14] 3
+Integer [73:16 - 73:16] 1
+Integer [73:18 - 73:18] 4
+Integer [73:20 - 73:20] 1
+Integer [73:22 - 73:22] 5
+Integer [73:24 - 73:24] 9
+Integer [73:26 - 73:26] 2
+Integer [73:28 - 73:28] 6
+Integer [73:30 - 73:30] 5
+Integer [73:32 - 73:32] 3
+Integer [73:34 - 73:34] 5
+CloseParen [73:35 - 73:35]
+CloseParen [73:36 - 73:36]
+Comment [73:38 - 73:62]
+OpenParen [75:1 - 75:1]
+Identifier [75:2 - 75:10] "mergeSort"
+QuoteSymbol [75:12 - 75:12]
+OpenParen [75:13 - 75:13]
+Integer [75:14 - 75:16] -33
+Integer [75:18 - 75:21] 1500
+Real [75:23 - 75:27] -5.13
+Integer [75:29 - 75:30] 23
+Integer [75:32 - 75:35] 9005
+Integer [75:37 - 75:39] -49
+Real [75:41 - 75:47] -200.13
+Integer [75:49 - 75:49] 6
+Integer [75:51 - 75:51] 5
+Integer [75:53 - 75:53] 2
+Integer [75:55 - 75:55] 5
+CloseParen [75:56 - 75:56]
+CloseParen [75:57 - 75:57]
+Comment [75:59 - 75:104]
+End [77:1 - 77:1]
+
+
+===============================
+No errors encountered in Tests/Examples/Advanced/mergeSort.lifp

@@ -1,0 +1,7 @@
+Integer [1:1 - 1:2] 21
+QuoteSymbol [1:3 - 1:3]
+End [2:1 - 2:1]
+
+
+===============================
+No errors encountered in Tests/Examples/bad/lex/Quote.lifp

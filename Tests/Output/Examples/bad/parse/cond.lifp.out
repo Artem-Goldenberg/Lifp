@@ -1,0 +1,26 @@
+Identifier [1:1 - 1:2] "//"
+OpenParen [1:4 - 1:4]
+Cond [1:5 - 1:8]
+Identifier [1:10 - 1:12] "El1"
+Identifier [1:14 - 1:16] "El2"
+Identifier [1:18 - 1:22] "[El3]"
+CloseParen [1:23 - 1:23]
+OpenParen [3:1 - 3:1]
+Cond [3:2 - 3:5]
+CloseParen [3:6 - 3:6]
+OpenParen [4:1 - 4:1]
+Cond [4:2 - 4:5]
+Identifier [4:7 - 4:7] "a"
+CloseParen [4:8 - 4:8]
+OpenParen [5:1 - 5:1]
+Cond [5:2 - 5:5]
+Identifier [5:7 - 5:9] "way"
+Identifier [5:11 - 5:13] "too"
+Identifier [5:15 - 5:18] "much"
+Identifier [5:20 - 5:23] "args"
+CloseParen [5:24 - 5:24]
+End [6:1 - 6:1]
+
+
+===============================
+No errors encountered in Tests/Examples/bad/parse/cond.lifp

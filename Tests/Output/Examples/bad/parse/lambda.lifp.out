@@ -1,0 +1,34 @@
+Identifier [1:1 - 1:2] "//"
+OpenParen [1:4 - 1:4]
+Lambda [1:5 - 1:10]
+Identifier [1:12 - 1:15] "List"
+Identifier [1:17 - 1:23] "Element"
+CloseParen [1:24 - 1:24]
+OpenParen [3:1 - 3:1]
+Lambda [3:2 - 3:7]
+CloseParen [3:8 - 3:8]
+OpenParen [4:1 - 4:1]
+Lambda [4:2 - 4:7]
+OpenParen [4:9 - 4:9]
+CloseParen [4:10 - 4:10]
+CloseParen [4:11 - 4:11]
+OpenParen [6:1 - 6:1]
+Lambda [6:2 - 6:7]
+OpenParen [6:9 - 6:9]
+Identifier [6:10 - 6:17] "non-list"
+CloseParen [6:18 - 6:18]
+Identifier [6:20 - 6:21] "el"
+CloseParen [6:22 - 6:22]
+OpenParen [7:1 - 7:1]
+Lambda [7:2 - 7:7]
+OpenParen [7:9 - 7:9]
+Identifier [7:10 - 7:12] "too"
+CloseParen [7:13 - 7:13]
+Identifier [7:15 - 7:18] "much"
+Identifier [7:20 - 7:23] "args"
+CloseParen [7:24 - 7:24]
+End [8:1 - 8:1]
+
+
+===============================
+No errors encountered in Tests/Examples/bad/parse/lambda.lifp

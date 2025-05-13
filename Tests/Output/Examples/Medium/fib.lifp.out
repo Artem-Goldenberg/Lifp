@@ -1,0 +1,60 @@
+OpenParen [1:1 - 1:1]
+Func [1:2 - 1:5]
+Identifier [1:7 - 1:9] "fib"
+OpenParen [1:11 - 1:11]
+Identifier [1:12 - 1:12] "N"
+CloseParen [1:13 - 1:13]
+OpenParen [2:5 - 2:5]
+Cond [2:6 - 2:9]
+OpenParen [2:11 - 2:11]
+Identifier [2:12 - 2:17] "lesseq"
+Identifier [2:19 - 2:19] "N"
+Integer [2:21 - 2:21] 2
+CloseParen [2:22 - 2:22]
+Integer [3:9 - 3:9] 1
+OpenParen [4:9 - 4:9]
+Identifier [4:10 - 4:13] "plus"
+OpenParen [4:15 - 4:15]
+Identifier [4:16 - 4:18] "fib"
+OpenParen [4:20 - 4:20]
+Identifier [4:21 - 4:25] "minus"
+Identifier [4:27 - 4:27] "N"
+Integer [4:29 - 4:29] 1
+CloseParen [4:30 - 4:30]
+CloseParen [4:31 - 4:31]
+OpenParen [4:33 - 4:33]
+Identifier [4:34 - 4:36] "fib"
+OpenParen [4:38 - 4:38]
+Identifier [4:39 - 4:43] "minus"
+Identifier [4:45 - 4:45] "N"
+Integer [4:47 - 4:47] 2
+CloseParen [4:48 - 4:48]
+CloseParen [4:49 - 4:49]
+CloseParen [4:50 - 4:50]
+CloseParen [5:5 - 5:5]
+CloseParen [6:1 - 6:1]
+OpenParen [8:1 - 8:1]
+Identifier [8:2 - 8:4] "fib"
+Integer [8:6 - 8:6] 1
+CloseParen [8:7 - 8:7]
+Comment [8:9 - 8:11]
+OpenParen [9:1 - 9:1]
+Identifier [9:2 - 9:4] "fib"
+Integer [9:6 - 9:6] 3
+CloseParen [9:7 - 9:7]
+Comment [9:9 - 9:11]
+OpenParen [10:1 - 10:1]
+Identifier [10:2 - 10:4] "fib"
+Integer [10:6 - 10:6] 5
+CloseParen [10:7 - 10:7]
+Comment [10:9 - 10:11]
+OpenParen [11:1 - 11:1]
+Identifier [11:2 - 11:4] "fib"
+Integer [11:6 - 11:7] 10
+CloseParen [11:8 - 11:8]
+Comment [11:10 - 11:13]
+End [12:1 - 12:1]
+
+
+===============================
+No errors encountered in Tests/Examples/Medium/fib.lifp

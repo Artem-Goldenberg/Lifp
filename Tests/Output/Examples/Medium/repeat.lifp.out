@@ -1,0 +1,73 @@
+OpenParen [1:1 - 1:1]
+Func [1:2 - 1:5]
+Identifier [1:7 - 1:12] "repeat"
+OpenParen [1:14 - 1:14]
+Identifier [1:15 - 1:21] "element"
+Identifier [1:23 - 1:23] "n"
+CloseParen [1:24 - 1:24]
+OpenParen [2:5 - 2:5]
+Prog [2:6 - 2:9]
+OpenParen [2:10 - 2:10]
+CloseParen [2:11 - 2:11]
+OpenParen [3:9 - 3:9]
+Cond [3:10 - 3:13]
+OpenParen [3:15 - 3:15]
+Identifier [3:16 - 3:21] "lesseq"
+Identifier [3:23 - 3:23] "n"
+Integer [3:25 - 3:25] 0
+CloseParen [3:26 - 3:26]
+OpenParen [4:13 - 4:13]
+Return [4:14 - 4:19]
+QuoteSymbol [4:21 - 4:21]
+OpenParen [4:22 - 4:22]
+CloseParen [4:23 - 4:23]
+CloseParen [4:24 - 4:24]
+CloseParen [5:9 - 5:9]
+OpenParen [6:9 - 6:9]
+Return [6:10 - 6:15]
+OpenParen [6:17 - 6:17]
+Identifier [6:18 - 6:21] "cons"
+QuoteSymbol [6:23 - 6:23]
+OpenParen [6:24 - 6:24]
+Identifier [6:25 - 6:31] "element"
+CloseParen [6:32 - 6:32]
+OpenParen [6:34 - 6:34]
+Identifier [6:35 - 6:40] "repeat"
+Identifier [6:42 - 6:48] "element"
+OpenParen [6:50 - 6:50]
+Identifier [6:51 - 6:55] "minus"
+Identifier [6:57 - 6:57] "n"
+Integer [6:59 - 6:59] 1
+CloseParen [6:60 - 6:60]
+CloseParen [6:61 - 6:61]
+CloseParen [6:62 - 6:62]
+CloseParen [6:63 - 6:63]
+CloseParen [7:5 - 7:5]
+CloseParen [8:1 - 8:1]
+OpenParen [10:1 - 10:1]
+Identifier [10:2 - 10:7] "repeat"
+Integer [10:9 - 10:9] 5
+Integer [10:11 - 10:12] 10
+CloseParen [10:13 - 10:13]
+Comment [10:15 - 10:37]
+OpenParen [11:1 - 11:1]
+Identifier [11:2 - 11:7] "repeat"
+False [11:9 - 11:13]
+Integer [11:15 - 11:16] -3
+CloseParen [11:17 - 11:17]
+Comment [11:19 - 11:22]
+OpenParen [12:1 - 12:1]
+Identifier [12:2 - 12:7] "repeat"
+QuoteSymbol [12:9 - 12:9]
+OpenParen [12:10 - 12:10]
+Integer [12:11 - 12:11] 1
+Integer [12:13 - 12:13] 2
+CloseParen [12:14 - 12:14]
+Integer [12:16 - 12:16] 2
+CloseParen [12:17 - 12:17]
+Comment [12:19 - 12:33]
+End [13:1 - 13:1]
+
+
+===============================
+No errors encountered in Tests/Examples/Medium/repeat.lifp

@@ -1,0 +1,17 @@
+OpenParen [2:1 - 2:1]
+Setq [2:2 - 2:5]
+Identifier [2:7 - 2:58] "a123456789101112131415161718192"
+Null [2:60 - 2:63]
+CloseParen [2:64 - 2:64]
+End [4:1 - 4:1]
+
+
+===============================
+1 issue found in Tests/Examples/bad/lex/MoreThan32LongIdentifier.lifp:
+
+[2:38 - 2:58] Warning: Identifier longer than 31 characters detected,
+	all overflowing characters are skipped and not considered
+2 | (setq a123456789101112131415161718192021222324252627282930 null)
+                                         ^~~~~~~~~~~~~~~~~~~~~
+
+

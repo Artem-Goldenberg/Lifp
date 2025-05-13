@@ -1,0 +1,11 @@
+Comment [1:1 - 1:25]
+Comment [2:1 - 2:22]
+Comment [4:1 - 4:14]
+OpenParen [6:1 - 6:1]
+Func [6:2 - 6:5]
+CloseParen [6:6 - 6:6]
+End [7:1 - 7:1]
+
+
+===============================
+No errors encountered in Tests/Examples/lambda-calculus/simply-typed-lambda.lifp

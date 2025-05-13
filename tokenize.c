@@ -9,10 +9,12 @@ static const char* const dirs[] = {
     "Examples/Medium/",
     "Examples/Advanced/",
     "Examples/bad/lex/",
+    "Examples/bad/parse/"
 //    "Examples/bad"
 };
 
 static bool printTokens(const char* filepath, FILE* out) {
+
     int err = initialize(filepath);
     if (err) return false;
 

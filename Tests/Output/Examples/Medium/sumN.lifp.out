@@ -1,0 +1,53 @@
+OpenParen [1:1 - 1:1]
+Setq [1:2 - 1:5]
+Identifier [1:7 - 1:7] "N"
+Integer [1:9 - 1:11] 100
+CloseParen [1:12 - 1:12]
+OpenParen [2:1 - 2:1]
+Setq [2:2 - 2:5]
+Identifier [2:7 - 2:7] "i"
+Integer [2:9 - 2:9] 0
+CloseParen [2:10 - 2:10]
+OpenParen [3:1 - 3:1]
+Setq [3:2 - 3:5]
+Identifier [3:7 - 3:9] "sum"
+Integer [3:11 - 3:11] 0
+CloseParen [3:12 - 3:12]
+OpenParen [5:1 - 5:1]
+While [5:2 - 5:6]
+OpenParen [5:8 - 5:8]
+Identifier [5:9 - 5:12] "less"
+Identifier [5:14 - 5:14] "i"
+Identifier [5:16 - 5:16] "N"
+CloseParen [5:17 - 5:17]
+OpenParen [6:5 - 6:5]
+Prog [6:6 - 6:9]
+OpenParen [6:11 - 6:11]
+CloseParen [6:12 - 6:12]
+OpenParen [7:9 - 7:9]
+Setq [7:10 - 7:13]
+Identifier [7:15 - 7:15] "i"
+OpenParen [7:17 - 7:17]
+Identifier [7:18 - 7:21] "plus"
+Identifier [7:23 - 7:23] "i"
+Integer [7:25 - 7:25] 1
+CloseParen [7:26 - 7:26]
+CloseParen [7:27 - 7:27]
+OpenParen [8:9 - 8:9]
+Setq [8:10 - 8:13]
+Identifier [8:15 - 8:17] "sum"
+OpenParen [8:19 - 8:19]
+Identifier [8:20 - 8:23] "plus"
+Identifier [8:25 - 8:27] "sum"
+Identifier [8:29 - 8:29] "i"
+CloseParen [8:30 - 8:30]
+CloseParen [8:31 - 8:31]
+CloseParen [9:5 - 9:5]
+CloseParen [10:1 - 10:1]
+Identifier [12:1 - 12:3] "sum"
+Comment [12:5 - 12:10]
+End [13:1 - 13:1]
+
+
+===============================
+No errors encountered in Tests/Examples/Medium/sumN.lifp

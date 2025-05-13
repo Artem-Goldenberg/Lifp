@@ -1,0 +1,50 @@
+OpenParen [1:1 - 1:1]
+OpenParen [1:2 - 1:2]
+Identifier [1:3 - 1:6] "some"
+OpenParen [1:8 - 1:8]
+OpenParen [1:9 - 1:9]
+OpenParen [1:10 - 1:10]
+OpenParen [1:11 - 1:11]
+OpenParen [1:12 - 1:12]
+OpenParen [1:13 - 1:13]
+Identifier [1:14 - 1:17] "more"
+OpenParen [1:18 - 1:18]
+OpenParen [1:19 - 1:19]
+OpenParen [1:20 - 1:20]
+CloseParen [1:21 - 1:21]
+OpenParen [1:22 - 1:22]
+OpenParen [1:23 - 1:23]
+OpenParen [1:24 - 1:24]
+OpenParen [1:25 - 1:25]
+OpenParen [1:26 - 1:26]
+CloseParen [1:27 - 1:27]
+CloseParen [1:28 - 1:28]
+CloseParen [1:29 - 1:29]
+CloseParen [1:30 - 1:30]
+OpenParen [1:31 - 1:31]
+OpenParen [1:32 - 1:32]
+Identifier [1:33 - 1:33] "a"
+Identifier [1:35 - 1:35] "b"
+Identifier [1:37 - 1:37] "c"
+Identifier [1:39 - 1:39] "d"
+CloseParen [1:40 - 1:40]
+CloseParen [1:41 - 1:41]
+Identifier [1:43 - 1:43] "e"
+CloseParen [1:44 - 1:44]
+CloseParen [1:45 - 1:45]
+CloseParen [1:46 - 1:46]
+CloseParen [1:47 - 1:47]
+CloseParen [1:48 - 1:48]
+CloseParen [1:49 - 1:49]
+CloseParen [1:50 - 1:50]
+CloseParen [1:51 - 1:51]
+Identifier [1:53 - 1:53] "f"
+CloseParen [1:54 - 1:54]
+CloseParen [1:55 - 1:55]
+CloseParen [1:56 - 1:56]
+CloseParen [1:57 - 1:57]
+End [2:1 - 2:1]
+
+
+===============================
+No errors encountered in Tests/Examples/bad/parse/UnclosedLeftParenHard.lifp

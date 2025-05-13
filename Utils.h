@@ -7,7 +7,6 @@
 #include <assert.h>
 
 #include "Lifp.h"
-#include "Lexer.h"
 
 static bool isLifpSource(const char* name) {
     long len = strlen(name);
@@ -33,6 +32,8 @@ int initialize(const char* filepath) {
     FILE* some = fopen(filepath, "r");
 
     if (!some) return 1;
+
+    initializeAllocator();
 
     static bool lexerInit = false;
     if (!lexerInit) {

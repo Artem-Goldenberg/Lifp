@@ -1,0 +1,552 @@
+Comment [1:1 - 1:14]
+OpenParen [3:1 - 3:1]
+Setq [3:2 - 3:5]
+Identifier [3:7 - 3:10] "zero"
+OpenParen [4:2 - 4:2]
+Lambda [4:3 - 4:8]
+OpenParen [4:10 - 4:10]
+Identifier [4:11 - 4:11] "s"
+Identifier [4:13 - 4:13] "z"
+CloseParen [4:14 - 4:14]
+Identifier [5:3 - 5:3] "z"
+CloseParen [6:2 - 6:2]
+CloseParen [7:1 - 7:1]
+OpenParen [9:1 - 9:1]
+Setq [9:2 - 9:5]
+Identifier [9:7 - 9:9] "one"
+OpenParen [10:2 - 10:2]
+Lambda [10:3 - 10:8]
+OpenParen [10:10 - 10:10]
+Identifier [10:11 - 10:11] "s"
+Identifier [10:13 - 10:13] "z"
+CloseParen [10:14 - 10:14]
+OpenParen [11:3 - 11:3]
+Identifier [11:4 - 11:4] "s"
+Identifier [11:6 - 11:6] "z"
+CloseParen [11:7 - 11:7]
+CloseParen [12:2 - 12:2]
+CloseParen [13:1 - 13:1]
+OpenParen [15:1 - 15:1]
+Setq [15:2 - 15:5]
+Identifier [15:7 - 15:9] "two"
+OpenParen [16:2 - 16:2]
+Lambda [16:3 - 16:8]
+OpenParen [16:10 - 16:10]
+Identifier [16:11 - 16:11] "s"
+Identifier [16:13 - 16:13] "z"
+CloseParen [16:14 - 16:14]
+OpenParen [17:3 - 17:3]
+Identifier [17:4 - 17:4] "s"
+OpenParen [17:6 - 17:6]
+Identifier [17:7 - 17:7] "s"
+Identifier [17:9 - 17:9] "z"
+CloseParen [17:10 - 17:10]
+CloseParen [17:11 - 17:11]
+CloseParen [18:2 - 18:2]
+CloseParen [19:1 - 19:1]
+OpenParen [21:1 - 21:1]
+Setq [21:2 - 21:5]
+Identifier [21:7 - 21:11] "three"
+OpenParen [22:2 - 22:2]
+Lambda [22:3 - 22:8]
+OpenParen [22:10 - 22:10]
+Identifier [22:11 - 22:11] "s"
+Identifier [22:13 - 22:13] "z"
+CloseParen [22:14 - 22:14]
+OpenParen [23:3 - 23:3]
+Identifier [23:4 - 23:4] "s"
+OpenParen [23:6 - 23:6]
+Identifier [23:7 - 23:7] "s"
+OpenParen [23:9 - 23:9]
+Identifier [23:10 - 23:10] "s"
+Identifier [23:12 - 23:12] "z"
+CloseParen [23:13 - 23:13]
+CloseParen [23:14 - 23:14]
+CloseParen [23:15 - 23:15]
+CloseParen [24:2 - 24:2]
+CloseParen [25:1 - 25:1]
+OpenParen [27:1 - 27:1]
+Setq [27:2 - 27:5]
+Identifier [27:7 - 27:10] "four"
+OpenParen [28:2 - 28:2]
+Lambda [28:3 - 28:8]
+OpenParen [28:10 - 28:10]
+Identifier [28:11 - 28:11] "s"
+Identifier [28:13 - 28:13] "z"
+CloseParen [28:14 - 28:14]
+OpenParen [29:3 - 29:3]
+Identifier [29:4 - 29:4] "s"
+OpenParen [29:6 - 29:6]
+Identifier [29:7 - 29:7] "s"
+OpenParen [29:9 - 29:9]
+Identifier [29:10 - 29:10] "s"
+OpenParen [29:12 - 29:12]
+Identifier [29:13 - 29:13] "s"
+Identifier [29:15 - 29:15] "z"
+CloseParen [29:16 - 29:16]
+CloseParen [29:17 - 29:17]
+CloseParen [29:18 - 29:18]
+CloseParen [29:19 - 29:19]
+CloseParen [30:2 - 30:2]
+CloseParen [31:1 - 31:1]
+OpenParen [33:1 - 33:1]
+Setq [33:2 - 33:5]
+Identifier [33:7 - 33:10] "five"
+OpenParen [34:2 - 34:2]
+Lambda [34:3 - 34:8]
+OpenParen [34:10 - 34:10]
+Identifier [34:11 - 34:11] "s"
+Identifier [34:13 - 34:13] "z"
+CloseParen [34:14 - 34:14]
+OpenParen [35:3 - 35:3]
+Identifier [35:4 - 35:4] "s"
+OpenParen [35:6 - 35:6]
+Identifier [35:7 - 35:7] "s"
+OpenParen [35:9 - 35:9]
+Identifier [35:10 - 35:10] "s"
+OpenParen [35:12 - 35:12]
+Identifier [35:13 - 35:13] "s"
+OpenParen [35:15 - 35:15]
+Identifier [35:16 - 35:16] "s"
+Identifier [35:18 - 35:18] "z"
+CloseParen [35:19 - 35:19]
+CloseParen [35:20 - 35:20]
+CloseParen [35:21 - 35:21]
+CloseParen [35:22 - 35:22]
+CloseParen [35:23 - 35:23]
+CloseParen [36:2 - 36:2]
+CloseParen [37:1 - 37:1]
+OpenParen [39:1 - 39:1]
+Setq [39:2 - 39:5]
+Identifier [39:7 - 39:9] "six"
+OpenParen [40:2 - 40:2]
+Lambda [40:3 - 40:8]
+OpenParen [40:10 - 40:10]
+Identifier [40:11 - 40:11] "s"
+Identifier [40:13 - 40:13] "z"
+CloseParen [40:14 - 40:14]
+OpenParen [41:3 - 41:3]
+Identifier [41:4 - 41:4] "s"
+OpenParen [41:6 - 41:6]
+Identifier [41:7 - 41:7] "s"
+OpenParen [41:9 - 41:9]
+Identifier [41:10 - 41:10] "s"
+OpenParen [41:12 - 41:12]
+Identifier [41:13 - 41:13] "s"
+OpenParen [41:15 - 41:15]
+Identifier [41:16 - 41:16] "s"
+OpenParen [41:18 - 41:18]
+Identifier [41:19 - 41:19] "s"
+Identifier [41:21 - 41:21] "z"
+CloseParen [41:22 - 41:22]
+CloseParen [41:23 - 41:23]
+CloseParen [41:24 - 41:24]
+CloseParen [41:25 - 41:25]
+CloseParen [41:26 - 41:26]
+CloseParen [41:27 - 41:27]
+CloseParen [42:2 - 42:2]
+CloseParen [43:1 - 43:1]
+OpenParen [45:1 - 45:1]
+Setq [45:2 - 45:5]
+Identifier [45:7 - 45:11] "seven"
+OpenParen [46:2 - 46:2]
+Lambda [46:3 - 46:8]
+OpenParen [46:10 - 46:10]
+Identifier [46:11 - 46:11] "s"
+Identifier [46:13 - 46:13] "z"
+CloseParen [46:14 - 46:14]
+OpenParen [47:3 - 47:3]
+Identifier [47:4 - 47:4] "s"
+OpenParen [47:6 - 47:6]
+Identifier [47:7 - 47:7] "s"
+OpenParen [47:9 - 47:9]
+Identifier [47:10 - 47:10] "s"
+OpenParen [47:12 - 47:12]
+Identifier [47:13 - 47:13] "s"
+OpenParen [47:15 - 47:15]
+Identifier [47:16 - 47:16] "s"
+OpenParen [47:18 - 47:18]
+Identifier [47:19 - 47:19] "s"
+OpenParen [47:21 - 47:21]
+Identifier [47:22 - 47:22] "s"
+Identifier [47:24 - 47:24] "z"
+CloseParen [47:25 - 47:25]
+CloseParen [47:26 - 47:26]
+CloseParen [47:27 - 47:27]
+CloseParen [47:28 - 47:28]
+CloseParen [47:29 - 47:29]
+CloseParen [47:30 - 47:30]
+CloseParen [47:31 - 47:31]
+CloseParen [48:2 - 48:2]
+CloseParen [49:1 - 49:1]
+OpenParen [51:1 - 51:1]
+Setq [51:2 - 51:5]
+Identifier [51:7 - 51:11] "eight"
+OpenParen [52:2 - 52:2]
+Lambda [52:3 - 52:8]
+OpenParen [52:10 - 52:10]
+Identifier [52:11 - 52:11] "s"
+Identifier [52:13 - 52:13] "z"
+CloseParen [52:14 - 52:14]
+OpenParen [53:3 - 53:3]
+Identifier [53:4 - 53:4] "s"
+OpenParen [53:6 - 53:6]
+Identifier [53:7 - 53:7] "s"
+OpenParen [53:9 - 53:9]
+Identifier [53:10 - 53:10] "s"
+OpenParen [53:12 - 53:12]
+Identifier [53:13 - 53:13] "s"
+OpenParen [53:15 - 53:15]
+Identifier [53:16 - 53:16] "s"
+OpenParen [53:18 - 53:18]
+Identifier [53:19 - 53:19] "s"
+OpenParen [53:21 - 53:21]
+Identifier [53:22 - 53:22] "s"
+OpenParen [53:24 - 53:24]
+Identifier [53:25 - 53:25] "s"
+Identifier [53:27 - 53:27] "z"
+CloseParen [53:28 - 53:28]
+CloseParen [53:29 - 53:29]
+CloseParen [53:30 - 53:30]
+CloseParen [53:31 - 53:31]
+CloseParen [53:32 - 53:32]
+CloseParen [53:33 - 53:33]
+CloseParen [53:34 - 53:34]
+CloseParen [53:35 - 53:35]
+CloseParen [54:2 - 54:2]
+CloseParen [55:1 - 55:1]
+OpenParen [57:1 - 57:1]
+Setq [57:2 - 57:5]
+Identifier [57:7 - 57:10] "nine"
+OpenParen [58:2 - 58:2]
+Lambda [58:3 - 58:8]
+OpenParen [58:10 - 58:10]
+Identifier [58:11 - 58:11] "s"
+Identifier [58:13 - 58:13] "z"
+CloseParen [58:14 - 58:14]
+OpenParen [59:3 - 59:3]
+Identifier [59:4 - 59:4] "s"
+OpenParen [59:6 - 59:6]
+Identifier [59:7 - 59:7] "s"
+OpenParen [59:9 - 59:9]
+Identifier [59:10 - 59:10] "s"
+OpenParen [59:12 - 59:12]
+Identifier [59:13 - 59:13] "s"
+OpenParen [59:15 - 59:15]
+Identifier [59:16 - 59:16] "s"
+OpenParen [59:18 - 59:18]
+Identifier [59:19 - 59:19] "s"
+OpenParen [59:21 - 59:21]
+Identifier [59:22 - 59:22] "s"
+OpenParen [59:24 - 59:24]
+Identifier [59:25 - 59:25] "s"
+OpenParen [59:27 - 59:27]
+Identifier [59:28 - 59:28] "s"
+Identifier [59:30 - 59:30] "z"
+CloseParen [59:31 - 59:31]
+CloseParen [59:32 - 59:32]
+CloseParen [59:33 - 59:33]
+CloseParen [59:34 - 59:34]
+CloseParen [59:35 - 59:35]
+CloseParen [59:36 - 59:36]
+CloseParen [59:37 - 59:37]
+CloseParen [59:38 - 59:38]
+CloseParen [59:39 - 59:39]
+CloseParen [60:2 - 60:2]
+CloseParen [61:1 - 61:1]
+OpenParen [63:1 - 63:1]
+Setq [63:2 - 63:5]
+Identifier [63:7 - 63:9] "ten"
+OpenParen [64:2 - 64:2]
+Lambda [64:3 - 64:8]
+OpenParen [64:10 - 64:10]
+Identifier [64:11 - 64:11] "s"
+Identifier [64:13 - 64:13] "z"
+CloseParen [64:14 - 64:14]
+OpenParen [65:3 - 65:3]
+Identifier [65:4 - 65:4] "s"
+OpenParen [65:6 - 65:6]
+Identifier [65:7 - 65:7] "s"
+OpenParen [65:9 - 65:9]
+Identifier [65:10 - 65:10] "s"
+OpenParen [65:12 - 65:12]
+Identifier [65:13 - 65:13] "s"
+OpenParen [65:15 - 65:15]
+Identifier [65:16 - 65:16] "s"
+OpenParen [65:18 - 65:18]
+Identifier [65:19 - 65:19] "s"
+OpenParen [65:21 - 65:21]
+Identifier [65:22 - 65:22] "s"
+OpenParen [65:24 - 65:24]
+Identifier [65:25 - 65:25] "s"
+OpenParen [65:27 - 65:27]
+Identifier [65:28 - 65:28] "s"
+OpenParen [65:30 - 65:30]
+Identifier [65:31 - 65:31] "s"
+Identifier [65:33 - 65:33] "z"
+CloseParen [65:34 - 65:34]
+CloseParen [65:35 - 65:35]
+CloseParen [65:36 - 65:36]
+CloseParen [65:37 - 65:37]
+CloseParen [65:38 - 65:38]
+CloseParen [65:39 - 65:39]
+CloseParen [65:40 - 65:40]
+CloseParen [65:41 - 65:41]
+CloseParen [65:42 - 65:42]
+CloseParen [65:43 - 65:43]
+CloseParen [66:2 - 66:2]
+CloseParen [67:1 - 67:1]
+Comment [69:1 - 69:20]
+OpenParen [71:1 - 71:1]
+Func [71:2 - 71:5]
+Identifier [71:7 - 71:10] "succ"
+OpenParen [71:12 - 71:12]
+Identifier [71:13 - 71:13] "n"
+CloseParen [71:14 - 71:14]
+OpenParen [72:2 - 72:2]
+Lambda [72:3 - 72:8]
+OpenParen [72:10 - 72:10]
+Identifier [72:11 - 72:11] "s"
+Identifier [72:13 - 72:13] "z"
+CloseParen [72:14 - 72:14]
+OpenParen [73:3 - 73:3]
+Identifier [73:4 - 73:4] "s"
+OpenParen [73:6 - 73:6]
+Identifier [73:7 - 73:7] "n"
+Identifier [73:9 - 73:9] "s"
+Identifier [73:11 - 73:11] "z"
+CloseParen [73:12 - 73:12]
+CloseParen [73:13 - 73:13]
+CloseParen [74:2 - 74:2]
+CloseParen [75:1 - 75:1]
+OpenParen [77:1 - 77:1]
+Func [77:2 - 77:5]
+OpenParen [77:7 - 77:7]
+Identifier [77:8 - 77:8] "n"
+Identifier [77:10 - 77:10] "m"
+CloseParen [77:11 - 77:11]
+OpenParen [78:2 - 78:2]
+Lambda [78:3 - 78:8]
+OpenParen [78:10 - 78:10]
+Identifier [78:11 - 78:11] "s"
+Identifier [78:13 - 78:13] "z"
+CloseParen [78:14 - 78:14]
+OpenParen [79:3 - 79:3]
+OpenParen [79:4 - 79:4]
+Identifier [79:5 - 79:5] "n"
+Identifier [79:7 - 79:7] "s"
+CloseParen [79:8 - 79:8]
+OpenParen [79:10 - 79:10]
+Identifier [79:11 - 79:11] "m"
+Identifier [79:13 - 79:13] "s"
+Identifier [79:15 - 79:15] "z"
+CloseParen [79:16 - 79:16]
+CloseParen [79:17 - 79:17]
+CloseParen [80:2 - 80:2]
+CloseParen [81:1 - 81:1]
+OpenParen [83:1 - 83:1]
+Func [83:2 - 83:5]
+Identifier [83:7 - 83:10] "mult"
+OpenParen [83:12 - 83:12]
+Identifier [83:13 - 83:13] "n"
+Identifier [83:15 - 83:15] "m"
+CloseParen [83:16 - 83:16]
+OpenParen [84:2 - 84:2]
+Lambda [84:3 - 84:8]
+OpenParen [84:10 - 84:10]
+Identifier [84:11 - 84:11] "s"
+Identifier [84:13 - 84:13] "z"
+CloseParen [84:14 - 84:14]
+Identifier [85:3 - 85:3] "n"
+OpenParen [85:5 - 85:5]
+Identifier [85:6 - 85:6] "m"
+Identifier [85:8 - 85:8] "s"
+CloseParen [85:9 - 85:9]
+Identifier [85:11 - 85:11] "z"
+CloseParen [86:2 - 86:2]
+CloseParen [87:1 - 87:1]
+OpenParen [89:1 - 89:1]
+Func [89:2 - 89:5]
+Identifier [89:7 - 89:9] "pow"
+OpenParen [89:11 - 89:11]
+Identifier [89:12 - 89:12] "b"
+Identifier [89:14 - 89:14] "e"
+CloseParen [89:15 - 89:15]
+OpenParen [90:2 - 90:2]
+Identifier [90:3 - 90:3] "e"
+Identifier [90:5 - 90:5] "b"
+CloseParen [90:6 - 90:6]
+CloseParen [91:1 - 91:1]
+OpenParen [93:1 - 93:1]
+Func [93:2 - 93:5]
+Identifier [93:7 - 93:12] "second"
+OpenParen [93:14 - 93:14]
+Identifier [93:15 - 93:15] "p"
+CloseParen [93:16 - 93:16]
+OpenParen [93:18 - 93:18]
+Identifier [93:19 - 93:22] "head"
+OpenParen [93:24 - 93:24]
+Identifier [93:25 - 93:28] "tail"
+Identifier [93:30 - 93:30] "p"
+CloseParen [93:31 - 93:31]
+CloseParen [93:32 - 93:32]
+CloseParen [93:33 - 93:33]
+OpenParen [95:1 - 95:1]
+Func [95:2 - 95:5]
+Identifier [95:7 - 95:10] "pred"
+OpenParen [95:12 - 95:12]
+Identifier [95:13 - 95:13] "n"
+CloseParen [95:14 - 95:14]
+OpenParen [96:2 - 96:2]
+Lambda [96:3 - 96:8]
+OpenParen [96:10 - 96:10]
+Identifier [96:11 - 96:11] "s"
+Identifier [96:13 - 96:13] "z"
+CloseParen [96:14 - 96:14]
+OpenParen [97:3 - 97:3]
+Identifier [97:4 - 97:9] "second"
+OpenParen [98:4 - 98:4]
+Identifier [98:5 - 98:5] "n"
+OpenParen [99:5 - 99:5]
+Lambda [99:6 - 99:11]
+OpenParen [99:13 - 99:13]
+Identifier [99:14 - 99:14] "p"
+CloseParen [99:15 - 99:15]
+OpenParen [100:6 - 100:6]
+OpenParen [100:7 - 100:7]
+Identifier [100:8 - 100:8] "s"
+OpenParen [100:10 - 100:10]
+Identifier [100:11 - 100:14] "head"
+Identifier [100:16 - 100:16] "p"
+CloseParen [100:17 - 100:17]
+CloseParen [100:18 - 100:18]
+OpenParen [100:20 - 100:20]
+Identifier [100:21 - 100:24] "head"
+Identifier [100:26 - 100:26] "p"
+CloseParen [100:27 - 100:27]
+CloseParen [100:28 - 100:28]
+CloseParen [101:5 - 101:5]
+OpenParen [102:5 - 102:5]
+Identifier [102:6 - 102:6] "z"
+Identifier [102:8 - 102:8] "z"
+CloseParen [102:9 - 102:9]
+CloseParen [103:4 - 103:4]
+CloseParen [104:3 - 104:3]
+CloseParen [105:2 - 105:2]
+CloseParen [106:1 - 106:1]
+OpenParen [108:1 - 108:1]
+Func [108:2 - 108:5]
+Identifier [108:7 - 108:11] "minus"
+OpenParen [108:13 - 108:13]
+Identifier [108:14 - 108:14] "n"
+Identifier [108:16 - 108:16] "m"
+CloseParen [108:17 - 108:17]
+OpenParen [109:2 - 109:2]
+Lambda [109:3 - 109:8]
+OpenParen [109:10 - 109:10]
+Identifier [109:11 - 109:11] "s"
+Identifier [109:13 - 109:13] "z"
+CloseParen [109:14 - 109:14]
+OpenParen [110:3 - 110:3]
+OpenParen [110:4 - 110:4]
+Identifier [110:5 - 110:5] "m"
+Identifier [110:7 - 110:10] "pred"
+CloseParen [110:11 - 110:11]
+Identifier [110:13 - 110:13] "n"
+CloseParen [110:14 - 110:14]
+CloseParen [111:2 - 111:2]
+CloseParen [112:1 - 112:1]
+OpenParen [114:1 - 114:1]
+Func [114:2 - 114:5]
+Identifier [114:7 - 114:16] "fromChurch"
+OpenParen [114:18 - 114:18]
+Identifier [114:19 - 114:19] "n"
+CloseParen [114:20 - 114:20]
+OpenParen [115:2 - 115:2]
+Identifier [115:3 - 115:3] "n"
+OpenParen [116:3 - 116:3]
+Lambda [116:4 - 116:9]
+OpenParen [116:11 - 116:11]
+Identifier [116:12 - 116:14] "num"
+CloseParen [116:15 - 116:15]
+OpenParen [116:17 - 116:17]
+Identifier [116:18 - 116:21] "plus"
+Identifier [116:23 - 116:25] "num"
+Integer [116:27 - 116:27] 1
+CloseParen [116:28 - 116:28]
+CloseParen [116:29 - 116:29]
+Integer [117:3 - 117:3] 0
+CloseParen [118:2 - 118:2]
+CloseParen [119:1 - 119:1]
+OpenParen [121:1 - 121:1]
+Identifier [121:2 - 121:5] "plus"
+Integer [121:7 - 121:7] 3
+Integer [121:9 - 121:9] 2
+CloseParen [121:10 - 121:10]
+OpenParen [122:1 - 122:1]
+Setq [122:2 - 122:5]
+Identifier [122:7 - 122:7] "a"
+OpenParen [122:9 - 122:9]
+Identifier [122:10 - 122:13] "plus"
+Integer [122:15 - 122:16] 32
+Integer [122:18 - 122:18] 1
+CloseParen [122:19 - 122:19]
+CloseParen [122:20 - 122:20]
+OpenParen [124:1 - 124:1]
+False [124:2 - 124:6]
+True [124:8 - 124:11]
+Integer [124:13 - 124:13] 3
+Integer [124:15 - 124:15] 4
+CloseParen [124:16 - 124:16]
+OpenParen [126:1 - 126:1]
+Func [126:2 - 126:5]
+Identifier [126:7 - 126:14] "toChurch"
+OpenParen [126:16 - 126:16]
+Identifier [126:17 - 126:19] "num"
+CloseParen [126:20 - 126:20]
+OpenParen [127:2 - 127:2]
+Lambda [127:3 - 127:8]
+OpenParen [127:10 - 127:10]
+Identifier [127:11 - 127:11] "s"
+Identifier [127:13 - 127:13] "z"
+CloseParen [127:14 - 127:14]
+OpenParen [128:3 - 128:3]
+Prog [128:4 - 128:7]
+OpenParen [128:9 - 128:9]
+Identifier [128:10 - 128:10] "s"
+Identifier [128:12 - 128:12] "z"
+Identifier [128:14 - 128:16] "num"
+CloseParen [128:17 - 128:17]
+OpenParen [128:19 - 128:19]
+OpenParen [129:4 - 129:4]
+While [129:5 - 129:9]
+OpenParen [129:11 - 129:11]
+Identifier [129:12 - 129:19] "nonequal"
+Identifier [129:21 - 129:23] "num"
+Integer [129:25 - 129:25] 0
+CloseParen [129:26 - 129:26]
+OpenParen [130:5 - 130:5]
+Setq [130:6 - 130:9]
+Identifier [130:11 - 130:16] "result"
+QuoteSymbol [130:18 - 130:18]
+OpenParen [130:19 - 130:19]
+Identifier [130:20 - 130:20] "s"
+OpenParen [130:22 - 130:22]
+Identifier [130:23 - 130:28] "result"
+CloseParen [130:29 - 130:29]
+CloseParen [130:30 - 130:30]
+CloseParen [130:31 - 130:31]
+CloseParen [131:4 - 131:4]
+OpenParen [132:4 - 132:4]
+Return [132:5 - 132:10]
+Identifier [132:12 - 132:17] "result"
+CloseParen [132:18 - 132:18]
+CloseParen [133:3 - 133:3]
+CloseParen [133:4 - 133:4]
+CloseParen [134:2 - 134:2]
+CloseParen [135:1 - 135:1]
+End [136:1 - 136:1]
+
+
+===============================
+No errors encountered in Tests/Examples/lambda-calculus/church-numerals.lifp

@@ -1,0 +1,43 @@
+OpenParen [1:1 - 1:1]
+Setq [1:2 - 1:5]
+Identifier [1:7 - 1:10] "expr"
+QuoteSymbol [1:12 - 1:12]
+OpenParen [1:13 - 1:13]
+Identifier [1:14 - 1:17] "plus"
+Integer [1:19 - 1:20] 10
+Integer [1:22 - 1:23] 20
+CloseParen [1:24 - 1:24]
+CloseParen [1:25 - 1:25]
+OpenParen [2:1 - 2:1]
+Identifier [2:2 - 2:5] "eval"
+Identifier [2:7 - 2:10] "expr"
+CloseParen [2:11 - 2:11]
+Comment [2:13 - 2:16]
+OpenParen [4:1 - 4:1]
+Setq [4:2 - 4:5]
+Identifier [4:7 - 4:10] "expr"
+QuoteSymbol [4:12 - 4:12]
+OpenParen [4:13 - 4:13]
+Identifier [4:14 - 4:17] "plus"
+Integer [4:19 - 4:20] 10
+OpenParen [4:22 - 4:22]
+Identifier [4:23 - 4:27] "minus"
+Integer [4:29 - 4:30] 10
+OpenParen [4:32 - 4:32]
+Identifier [4:33 - 4:37] "times"
+Integer [4:39 - 4:39] 2
+Integer [4:41 - 4:41] 2
+CloseParen [4:42 - 4:42]
+CloseParen [4:43 - 4:43]
+CloseParen [4:44 - 4:44]
+CloseParen [4:45 - 4:45]
+OpenParen [5:1 - 5:1]
+Identifier [5:2 - 5:5] "eval"
+Identifier [5:7 - 5:10] "expr"
+CloseParen [5:11 - 5:11]
+Comment [5:13 - 5:16]
+End [6:1 - 6:1]
+
+
+===============================
+No errors encountered in Tests/Examples/Basics/eval.lifp

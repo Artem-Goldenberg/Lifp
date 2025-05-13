@@ -1,0 +1,88 @@
+OpenParen [1:1 - 1:1]
+Func [1:2 - 1:5]
+Identifier [1:7 - 1:13] "isPrime"
+OpenParen [1:15 - 1:15]
+Identifier [1:16 - 1:16] "N"
+CloseParen [1:17 - 1:17]
+OpenParen [2:5 - 2:5]
+Prog [2:6 - 2:9]
+OpenParen [2:11 - 2:11]
+CloseParen [2:12 - 2:12]
+OpenParen [3:9 - 3:9]
+Func [3:10 - 3:13]
+Identifier [3:15 - 3:20] "helper"
+OpenParen [3:22 - 3:22]
+Identifier [3:23 - 3:23] "N"
+Identifier [3:25 - 3:31] "divisor"
+CloseParen [3:32 - 3:32]
+OpenParen [4:13 - 4:13]
+Cond [4:14 - 4:17]
+OpenParen [4:19 - 4:19]
+Identifier [4:20 - 4:26] "greater"
+OpenParen [4:28 - 4:28]
+Identifier [4:29 - 4:33] "times"
+Identifier [4:35 - 4:41] "divisor"
+Identifier [4:43 - 4:49] "divisor"
+CloseParen [4:50 - 4:50]
+Identifier [4:52 - 4:52] "N"
+CloseParen [4:53 - 4:53]
+True [5:17 - 5:20]
+OpenParen [6:17 - 6:17]
+Cond [6:18 - 6:21]
+OpenParen [6:23 - 6:23]
+Identifier [6:24 - 6:28] "equal"
+OpenParen [6:30 - 6:30]
+Identifier [6:31 - 6:33] "mod"
+Identifier [6:35 - 6:35] "N"
+Identifier [6:37 - 6:43] "divisor"
+CloseParen [6:44 - 6:44]
+Integer [6:46 - 6:46] 0
+CloseParen [6:47 - 6:47]
+False [7:21 - 7:25]
+OpenParen [8:21 - 8:21]
+Identifier [8:22 - 8:27] "helper"
+Identifier [8:29 - 8:29] "N"
+OpenParen [8:31 - 8:31]
+Identifier [8:32 - 8:35] "plus"
+Identifier [8:37 - 8:43] "divisor"
+Integer [8:45 - 8:45] 1
+CloseParen [8:46 - 8:46]
+CloseParen [8:47 - 8:47]
+CloseParen [9:17 - 9:17]
+CloseParen [10:13 - 10:13]
+CloseParen [11:9 - 11:9]
+OpenParen [12:9 - 12:9]
+Return [12:10 - 12:15]
+OpenParen [12:17 - 12:17]
+Identifier [12:18 - 12:23] "helper"
+Identifier [12:25 - 12:25] "N"
+Integer [12:27 - 12:27] 2
+CloseParen [12:28 - 12:28]
+CloseParen [12:29 - 12:29]
+CloseParen [13:5 - 13:5]
+CloseParen [14:1 - 14:1]
+OpenParen [16:1 - 16:1]
+Identifier [16:2 - 16:8] "isPrime"
+Integer [16:10 - 16:10] 2
+CloseParen [16:11 - 16:11]
+Comment [16:13 - 16:18]
+OpenParen [17:1 - 17:1]
+Identifier [17:2 - 17:8] "isPrime"
+Integer [17:10 - 17:10] 5
+CloseParen [17:11 - 17:11]
+Comment [17:13 - 17:18]
+OpenParen [18:1 - 18:1]
+Identifier [18:2 - 18:8] "isPrime"
+Integer [18:10 - 18:11] 10
+CloseParen [18:12 - 18:12]
+Comment [18:14 - 18:20]
+OpenParen [19:1 - 19:1]
+Identifier [19:2 - 19:8] "isPrime"
+Integer [19:10 - 19:11] 37
+CloseParen [19:12 - 19:12]
+Comment [19:14 - 19:19]
+End [20:1 - 20:1]
+
+
+===============================
+No errors encountered in Tests/Examples/Medium/prime.lifp
