@@ -30,19 +30,22 @@ CFLAGS += -g -Wall
 CFLAGS += -Wno-unused-function
 
 CPPFLAGS += -DLifpDebug  # Save strings, token infos, etc...
+CPPFLAGS += $(addprefix -I, $(headerDirs))
 
 # link time optimization for inlining functions in other translation units, disabled for now
 #CFLAGS += -flto
 
 eval: evaluate.c $(sources) $(headers) | build
-	$(LINK.c) evaluate.c $(sources) $(addprefix -I, $(headerDirs)) -o $@
+	$(LINK.c) evaluate.c $(sources) -o $@
 
 parser: parser.c $(sources) $(headers) | build
-	$(LINK.c) parser.c $(sources) $(addprefix -I, $(headerDirs)) -o $@
+	$(LINK.c) parser.c $(sources) -o $@
 
 lexer: tokenize.c $(lexer.sources) $(headers) | build
-	$(LINK.c) tokenize.c $(lexer.sources) $(addprefix -I, $(headerDirs)) -o $@
+	$(LINK.c) tokenize.c $(lexer.sources) -o $@
 
+preprocessed.%: $* $(headers) | build
+	$(CC) -E $(CPPFLAGS) $* -o build/$@
 
 build/Lifp.tab.h build/Lifp.tab.c: Sources/Parser/Lifp.y | build
 	bison -H $< -o build/Lifp.tab.c
