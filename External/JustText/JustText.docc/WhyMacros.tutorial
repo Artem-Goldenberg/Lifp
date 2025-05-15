@@ -1,0 +1,19 @@
+@Tutorials(name: "Interpret") {
+    @Intro(title: "Why use macros?") {
+        C macros may seem complicated and absolutely a mess to use.
+        But  ...
+        
+<!--        @Image(source: Code4.png, alt: "<#accessible description#>")-->
+    }
+    
+    @Chapter(name: "Bycode") {
+        Learn the bread and butter of how to use this library,
+        and what tasks it's actually been crated for, making 
+        a simple bytecode interpreter.
+        
+        @Image(source: Code3.png, 
+               alt: "Just an image of the gray text commands, written so they reflect the general coding atmosphere of old and raw assembly like code")
+        
+        @TutorialReference(tutorial: "doc:Interpret")
+    }
+}

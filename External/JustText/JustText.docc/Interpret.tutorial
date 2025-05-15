@@ -1,0 +1,40 @@
+@Tutorial(time: 10) {
+    @Intro(title: "Bycode") {
+        Ok, so this is so cool. I am actually going to show you, 
+        step by step how you can use this library, step-by-step.
+        
+        Imagine you are gonna write a simple bytecode interpreter in C 
+        (should not be too much of a stretch as this is 
+        exactly something you might want to do in C).
+        
+        Normally bytecodes have a lot of different types and kinds of instructions.
+        
+        Obviously, they also have tons of other stuff, but we are only gonna focus on
+        managing the instructions infrastructure in this tutorial. 
+        
+        
+<!--        @Image(source: <#file#>, alt: "<#accessible description#>")-->
+    }
+    
+    @Section(title: "Traditional approach") {
+        @ContentAndMedia {
+            First, we will try to do the bytecodes management the traditional way.
+            
+<!--            @Image(source: <#file#>, alt: "<#accessible description#>")-->
+        }
+        
+        @Steps {
+            @Step {
+                <#text#>
+                
+                @Image(source: <#file#>, alt: "<#accessible description#>")
+            }
+            
+            @Step {
+                <#text#>
+                
+                @Code(name: "<#display name#>", file: <#filename.swift#>)
+            }
+        }
+    }
+}
