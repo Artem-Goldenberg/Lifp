@@ -21,7 +21,6 @@ make parser
 
 It should output parse tree with some syntax errors
 
-
 To run lexer:
 ```
 make lexer
@@ -30,4 +29,12 @@ make lexer
 
 It should output a list of files which were tokenized.  
 Token streams are written to the files of the form `Test/Output/<original_file>.lifp.out`
+
+
+To see the pure C code without macros for a source file, you can run this:
+```
+make preprocessed.<sourcefile>.c
+```
+It will add the preprocessed file to `build/preprocessed.<sourcefile>.c`.  
+But you need to format it on your own.
 

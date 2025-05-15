@@ -12,6 +12,8 @@ int main(int argc, const char* argv[]) {
 
     if (reportErrors(program, stderr)) return -1;
 
+    const List* root = program->syntaxRoot;
+
     const Element* result = evalElement((const Element*)program->syntaxRoot);
 
     PresentationContext context = {

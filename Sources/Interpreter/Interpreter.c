@@ -87,10 +87,9 @@ static bool doNeedToProcessChildren(const Element* node) {
 
 /// Put child on the stack to be evaluated
 static void putNode(const Element* node, Context* context) {
-    context->nextNode[0] = node;
-    context->nextNode++;
+    *context->nextNode++ = node;
     // leaf nodes don't need to process their children
-    *context->isProcessed++ = doNeedToProcessChildren(node);
+    *context->isProcessed++ = !doNeedToProcessChildren(node);
 }
 
 static void popNode(Context* context) {
@@ -316,6 +315,7 @@ Value evalElement(const Element* node) {
         // (hard, need to put them in StringTable first)
     };
 
+
     // set up stack pointers
     context.currentScope = context.scopes;
 
@@ -323,8 +323,13 @@ Value evalElement(const Element* node) {
     context.nextNode = context.evaluationStack;
     context.isProcessed = context.isProcessedStack;
 
-    // put the node to be evaluated on the evaluation stack
-    putNode(node, &context);
+    // for now hard code that the starting node must be list
+    assert(node->type == syntax.List);
+    const List* list = (const List*)node;
+    // put elements on evaluation stack in reversed order,
+    // so the last elem will be evaluated last
+    for (int i = list->count - 1; i >= 0; --i)
+        putNode(list->elements[i], &context);
 
     // while evaluation stack is not empty, evaluate elements from it!
     while (context.nextNode != context.evaluationStack) {
