@@ -73,7 +73,7 @@ struct Node { \
         JTForEachAux( \
             ReturnNodeSwitchCaseUnpack, \
             (func, var, __VA_ARGS__), \
-            ConvertNodeDatas(LeafNodes, RecursiveNodes) \
+            ConvertNodeDatas(AllNodes) \
         ) \
         default: assert(false); \
     }

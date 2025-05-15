@@ -19,13 +19,13 @@ void addIssue(ProgramInfo* info, const Issue* newIssue) {
     info->issues[info->issuesCount++] = *newIssue;
 }
 
-void reportErrors(const ProgramInfo* info, FILE* out) {
+bool reportErrors(const ProgramInfo* info, FILE* out) {
     if (!info->issuesCount) {
         fprintf(out, "No errors encountered");
         if (info->filepath)
             fprintf(out, " in %s", info->filepath);
         fprintf(out, "\n");
-        return;
+        return false;
     }
 
     fprintf(out, "%d issue%s found", info->issuesCount, info->issuesCount == 1 ? "" : "s");
@@ -34,6 +34,7 @@ void reportErrors(const ProgramInfo* info, FILE* out) {
     fprintf(out, ":\n\n");
 
     printIssues(info->issuesCount, info->issues, info->text, out);
+    return true;
 }
 #endif
 

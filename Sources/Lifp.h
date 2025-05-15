@@ -38,8 +38,9 @@ typedef struct ProgramInfo ProgramInfo;
 #include "Lexer.h"
 
 #include "Syntax.h"
+#include "Lifp.tab.h"
+
 #include "Printer.h"
-#include "Substitution.h"
 #include "Interpreter.h"
 
 // MARK: - General compiler context
@@ -50,6 +51,8 @@ struct ProgramInfo {
     const char* filepath;
     /// Non-null access to the program text
     FILE* text;
+
+    Lexer* lexer;
 
     List* syntaxRoot;
 
@@ -74,7 +77,7 @@ ProgramInfo* newProgram(FILE* text, const char* filename);
 
 #ifdef ReportErrors
 void addIssue(ProgramInfo* info, const Issue* newIssue);
-void reportErrors(const ProgramInfo* info, FILE* out);
+bool reportErrors(const ProgramInfo* info, FILE* out);
 #endif
 
 #ifdef LifpDebug

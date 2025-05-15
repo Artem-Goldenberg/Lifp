@@ -71,11 +71,26 @@ static bool isLeafNode(const Element* node) {
     return node->type < JTCount(LeafNodes);
 }
 
+static bool doNeedToProcessChildren(const Element* node) {
+    if (isLeafNode(node)) return false;
+
+    switch (node->type) {
+        case syntax.Func:
+        case syntax.Lambda:
+        case syntax.Prog:
+        case syntax.Quote:
+            return false;
+
+        default: return true;
+    }
+}
+
 /// Put child on the stack to be evaluated
 static void putNode(const Element* node, Context* context) {
-    *context->nextNode++ = node;
+    context->nextNode[0] = node;
+    context->nextNode++;
     // leaf nodes don't need to process their children
-    *context->isProcessed++ = isLeafNode(node);
+    *context->isProcessed++ = doNeedToProcessChildren(node);
 }
 
 static void popNode(Context* context) {
@@ -204,13 +219,13 @@ static Value evalList(const List* list, Context* context) {
 }
 
 static bool processQuote(const Quote* quote, Context* context) {
-    return false;
-    // TODO: this
+    // nothing to do here, we don't need to evaluate anything
+    return true;
 }
 static Value evalQuote(const Quote* quote, Context* context) {
-    // TODO: this
-    return NULL;
+    return quote->inner;
 }
+
 static bool processSetq(const Setq* setq, Context* context) {
     return false;
     // TODO: this
@@ -219,14 +234,16 @@ static Value evalSetq(const Setq* setq, Context* context) {
     // TODO: this
     return NULL;
 }
+
 static bool processFunc(const Func* func, Context* context) {
-    return false;
-    // TODO: this
+    return true;
 }
 static Value evalFunc(const Func* func, Context* context) {
-    // TODO: this
-    return NULL;
+    bindVariable(func->name, (Value)func, context);
+    // functions evaluates to themselves
+    return (Value)func;
 }
+
 static bool processLambda(const Lambda* lambda, Context* context) {
     return false;
     // TODO: this
@@ -307,7 +324,7 @@ Value evalElement(const Element* node) {
     context.isProcessed = context.isProcessedStack;
 
     // put the node to be evaluated on the evaluation stack
-    *context.nextNode++ = node;
+    putNode(node, &context);
 
     // while evaluation stack is not empty, evaluate elements from it!
     while (context.nextNode != context.evaluationStack) {

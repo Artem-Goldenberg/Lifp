@@ -3,7 +3,7 @@
 }
 %code {
 #define AssignNonNull(var, expr) if (!(var = (expr))) YYNOMEM
-    int yylex(void);
+    int yylex(ProgramInfo* program);
     void yyerror(ProgramInfo* program, const char* message);
 }
 
@@ -33,7 +33,7 @@
 %type <Element*> element listContent literal
 %type <IdentifierList*> parameters manyIdentifiers
 
-%parse-param {ProgramInfo* program}
+%param {ProgramInfo* program}
 
 %%
 
@@ -80,3 +80,69 @@ literal:
   | "null"  { AssignNonNull($$, node.null());      }
 
 %%
+
+    yytoken_kind_t translation[TokensCount] = {
+        [token.Quote] = QUOTE,
+        [token.Setq] = SETQ,
+        [token.Func] = FUNC,
+        [token.Lambda] = LAMBDA,
+        [token.Prog] = PROG,
+        [token.Cond] = COND,
+        [token.While] = WHILE,
+        [token.Return] = RETURN,
+        [token.Break] = BREAK,
+        [token.Identifier] = IDENTIFIER,
+        [token.Integer] = INTEGER,
+        [token.Real] = REAL,
+        [token.True] = TRUE,
+        [token.False] = FALSE,
+        [token.Null] = NIL,
+        [token.QuoteSymbol] = QUOTESYMBOL,
+        [token.OpenParen] = '(',
+        [token.CloseParen] = ')',
+        //    [token.QuoteSymbol] = QUOTESYMBOL,
+        //    [token.OpenParen] = OPENPAREN,
+        //    [token.CloseParen] = CLOSEPAREN,
+        [token.End] = YYEOF
+    };
+
+    int yylex(ProgramInfo* program) {
+        Token t;
+
+        // skip all commentss
+        do {
+            t = getToken(program->lexer);
+            assert(t < TokensCount);
+        } while (t == token.Comment);
+
+        // set yylval if tokens has a value
+        switch (t) {
+            case token.Integer:
+            yylval.INTEGER = getInteger(program->lexer);
+            break;
+            case token.Real:
+            yylval.REAL = getReal(program->lexer);
+            break;
+            case token.Identifier:
+            yylval.IDENTIFIER = getIdentifier(program->lexer);
+            break;
+            default: break;
+        }
+
+        return translation[t];
+    }
+
+    void yyerror(ProgramInfo* program, const char* message) {
+        Issue error = {
+            .type = issueType.SyntaxError,
+            .start = getTokenStartLocation(program->lexer),
+            .end = getCurrentLocation(program->lexer),
+            .data = {
+                .generalError = (GeneralError) {
+                    .message = strdup(message)
+                }
+            }
+        };
+        addIssue(program, &error);
+        //    fprintf(stderr, "%s\n", message);
+    }

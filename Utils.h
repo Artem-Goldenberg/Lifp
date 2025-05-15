@@ -26,7 +26,6 @@ static const char* withPrefix(const char* prefix, const char* str) {
 }
 
 static ProgramInfo* program;
-static Lexer* lexer;
 
 int initialize(const char* filepath) {
     FILE* some = fopen(filepath, "r");
@@ -43,7 +42,7 @@ int initialize(const char* filepath) {
 
     program = newProgram(some, filepath);
 
-    lexer = newLexer(program);
+    program->lexer = newLexer(program);
 
     return 0;
 }
