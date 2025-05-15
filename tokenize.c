@@ -20,7 +20,7 @@ static bool printTokens(const char* filepath, FILE* out) {
 
     Token t;
     do {
-        t = getToken(lexer);
+        t = getToken(program->lexer);
     } while (t != token.End);
 
     for (uint i = 0; i < program->tokensCount; ++i) {

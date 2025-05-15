@@ -34,6 +34,9 @@ CPPFLAGS += -DLifpDebug  # Save strings, token infos, etc...
 # link time optimization for inlining functions in other translation units, disabled for now
 #CFLAGS += -flto
 
+eval: evaluate.c $(sources) $(headers) | build
+	$(LINK.c) evaluate.c $(sources) $(addprefix -I, $(headerDirs)) -o $@
+
 parser: parser.c $(sources) $(headers) | build
 	$(LINK.c) parser.c $(sources) $(addprefix -I, $(headerDirs)) -o $@
 
@@ -51,4 +54,5 @@ clean:
 	rm -f parser
 	rm -f lexer
 	rm -fr build
+	rm -fr *.dSYM
 

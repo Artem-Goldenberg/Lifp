@@ -5,6 +5,13 @@ Learning project to make a compiler for a Lisp-like language
 
 Need to have `bison` tool installed and available in PATH
 
+To run the evaluator:
+```
+make eval
+./eval Tests/Examples/simple.lifp
+```
+*For now it hits assertion on run*
+
 
 To run parser:
 ```
@@ -21,5 +28,6 @@ make lexer
 ./lexer
 ```
 
-It should output a list of filepaths where streams of tokens were written
+It should output a list of files which were tokenized.  
+Token streams are written to the files of the form `Test/Output/<original_file>.lifp.out`
 
