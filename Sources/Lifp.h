@@ -39,6 +39,7 @@ typedef struct ProgramInfo ProgramInfo;
 
 #include "Syntax.h"
 #include "Printer.h"
+#include "Substitution.h"
 #include "Interpreter.h"
 
 // MARK: - General compiler context
