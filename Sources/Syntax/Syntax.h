@@ -15,6 +15,11 @@
     (While, whileNode, (condition, body)), \
     (Return, returnNode, (value))
 
+//(Prog, prog, (statements[]),
+//    (IdentifierListPtr, context),
+//    (uint, statementsCount)
+//), 
+
 /// Special cased list node as it contains variadic amount of children in `elements`
 #define ListNode (List, list, (elements[]), (uint, count))
 

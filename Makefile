@@ -28,6 +28,7 @@ headers = $(foreach folder, $(headerDirs), $(wildcard $(folder)/*.h))
 CFLAGS += -std=gnu17
 CFLAGS += -g -Wall
 CFLAGS += -Wno-unused-function
+CFLAGS += -Wno-gnu-folding-constant
 
 CPPFLAGS += -DLifpDebug  # Save strings, token infos, etc...
 CPPFLAGS += $(addprefix -I, $(headerDirs))
