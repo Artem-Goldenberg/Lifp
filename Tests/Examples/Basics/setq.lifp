@@ -5,7 +5,7 @@ x
 (setq SimpleNaMe42 null)
 SimpleNaMe42
 
-(setq fibNumbers (quote 0 1 1 2 3 5))
+(setq fibNumbers (quote (0 1 1 2 3 5)))
 fibNumbers
 
 (setq fibNumbers '(0 1 1 2 3 5))
@@ -16,3 +16,5 @@ operation
 
 (setq not-so++simple$\$name//for//\youu++--++_[-_-] 10)
 not-so++simple$\$name//for//\youu++--++_[-_-]
+
+(setq tommorrow 😅😅😅)

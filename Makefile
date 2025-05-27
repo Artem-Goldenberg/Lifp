@@ -2,6 +2,7 @@ sources = \
 	Sources/Lifp.c \
 	Sources/Utils/Issue.c Sources/Utils/Allocator.c \
 	Sources/Interpreter/Interpreter.c \
+	Sources/Interpreter/Builtin.c \
 	Sources/Syntax/Syntax.c \
 	Sources/Parser/Token.c \
 	Sources/Parser/Lexer/Lexer.c \
@@ -27,6 +28,7 @@ headers = $(foreach folder, $(headerDirs), $(wildcard $(folder)/*.h))
 
 CFLAGS += -std=gnu17
 CFLAGS += -g -Wall
+CFLAGS += -O0
 CFLAGS += -Wno-unused-function
 CFLAGS += -Wno-gnu-folding-constant
 
@@ -45,7 +47,7 @@ parser: parser.c $(sources) $(headers) | build
 lexer: tokenize.c $(lexer.sources) $(headers) | build
 	$(LINK.c) tokenize.c $(lexer.sources) -o $@
 
-preprocessed.%: $* $(headers) | build
+preprocessed.%: $(headers) | build
 	$(CC) -E $(CPPFLAGS) $* -o build/$@
 
 build/Lifp.tab.h build/Lifp.tab.c: Sources/Parser/Lifp.y | build

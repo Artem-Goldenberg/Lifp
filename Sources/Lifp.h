@@ -37,10 +37,14 @@ typedef struct ProgramInfo ProgramInfo;
 #include "Issue.h"
 #include "Lexer.h"
 
+// predefine interpretation context, as some syntax elements require it as a parameter
+typedef struct Context Context;
+
 #include "Syntax.h"
 #include "Lifp.tab.h"
 
 #include "Printer.h"
+#include "Builtin.h"
 #include "Interpreter.h"
 
 // MARK: - General compiler context
@@ -54,7 +58,7 @@ struct ProgramInfo {
 
     Lexer* lexer;
 
-    List* syntaxRoot;
+    Prog* syntaxRoot;
 
     StringTable* strings;
 
@@ -73,7 +77,12 @@ struct ProgramInfo {
 
 };
 
+/// Used to create new program info to guide the compilation cycle
 ProgramInfo* newProgram(FILE* text, const char* filename);
+
+/// Before using string as identifier anywhere in the compilation, you must register it into the strings table,
+/// and use an `ID` returned as a unique link for the string you provided
+ID registerIdentifier(ProgramInfo* info, const char* name);
 
 #ifdef ReportErrors
 void addIssue(ProgramInfo* info, const Issue* newIssue);

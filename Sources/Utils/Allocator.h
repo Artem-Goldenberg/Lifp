@@ -14,6 +14,8 @@ void deinitializeAllocator(void);
 size_t reserve(void);
 void* allocate(uint size);
 void* allocateFromReserved(uint size);
+void* getReservedPointer(void);
+void setReservedPointer(void* pointer);
 void unreserve(void);
 
 #endif /* Allocator_h */

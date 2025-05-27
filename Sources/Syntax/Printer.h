@@ -117,6 +117,14 @@ VisitFunction(print, List, list, PresentationContext* context) {
     }
 }
 
+VisitFunction(print, Prog, prog, PresentationContext* context) {
+    present(context, "Prog[%u] ", prog->count);
+    presentEnter(context, "{");
+    presentMember(context, "context = ");
+    printIdentifierListPtr(prog->context, context);
+    context->currentChild.listIndex = 0;
+}
+
 // MARK: - General printing functions
 
 #define PresentParameter(Type, name, var) \
@@ -154,12 +162,20 @@ static inline void print(const Element* node, PresentationContext* context) {
 
     switch (parentNode) {
         case syntax.List:
+        case syntax.Prog:
             presentMember(context, "[%d] = ", child.listIndex++);
             break;
         default:
             if (child.fieldName)
                 presentMember(context, "%s = ", *child.fieldName++);
             break;
+    }
+
+    if (!node) {
+        present(context, "NULL\n");
+        if (context->shouldClose)
+            presentExit(context);
+        return;
     }
 
     // reset context before processing the child node

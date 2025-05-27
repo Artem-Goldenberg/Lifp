@@ -1,17 +1,30 @@
 #include "Lifp.h"
 
-// MARK: - Lists
+// MARK: - Arrays
 
-static void finalizeList(void) {
+static Array* startArray(void) {
+    // this will be the continuation from the previously half-allocated List or Prog
+//    Array* array = allocateFromReserved(sizeof(Array));
+    Array* array = getReservedPointer();
+    if (!array) return NULL;
+    array->count = 0;
+    return array;
+}
+
+static void finalize(void) {
     unreserve();
 }
 
-static bool appendElement(List* list, Element* element) {
+static bool appendElement(Array* array, Element* element) {
     Element** allocated = allocateFromReserved(sizeof(Element*));
     if (!allocated) return false; // ran out of memory
+    // TODO: There is a problem if the reallocation happens when we call `allocateFromReserved`
+    // function, but actually, in this case we would need to redirect the caller's array pointer,
+    // so we need to return a pointer to a new array location. I will not do this right now
+    // because it may lead to bugs I don't have time to partner with right now
     // assert our last reservation was for this `list`
-    assert(allocated == list->elements + list->count);
-    list->elements[list->count++] = element;
+    assert(allocated == array->elements + array->count);
+    array->elements[array->count++] = element;
     return true;
 }
 
@@ -23,16 +36,6 @@ static bool appendIdentifier(IdentifierList* list, ID id) {
     return true;
 }
 
-static List* newList(void) {
-    reserve();
-    // ???: what if alignment wrong?
-    List* list = allocateFromReserved(sizeof(List));
-    if (!list) return NULL;
-    list->base.type = syntax.List;
-    list->count = 0;
-    return list;
-}
-
 static IdentifierList* newIdentifierList(void) {
     reserve();
     IdentifierList* list = allocateFromReserved(sizeof(IdentifierList));
@@ -41,7 +44,29 @@ static IdentifierList* newIdentifierList(void) {
     return list;
 }
 
+
 // MARK: - Elements
+
+static Element* newList(void) {
+    reserve();
+    // next, the array allocation will be called, which will allocate the rest of the list
+    List* list = allocateFromReserved(sizeof(List));
+    if (!list) return NULL;
+    setReservedPointer(&list->count);
+    list->base.type = syntax.List;
+    return (Element*)list;
+}
+
+static Element* newProg(const IdentifierList* context) {
+    reserve();
+    // next, the array allocation will be called, which will allocate the rest of the prog
+    Prog* prog = allocateFromReserved(sizeof(Prog));
+    if (!prog) return NULL;
+    setReservedPointer(&prog->count);
+    prog->base.type = syntax.Prog;
+    prog->context = context;
+    return (Element*)prog;
+}
 
 #define CreatorDefinition(Node, var, children, ...) \
 static Element* new##Node(DeclareNodeFullParameters(children, __VA_ARGS__)) { \
@@ -52,7 +77,15 @@ static Element* new##Node(DeclareNodeFullParameters(children, __VA_ARGS__)) { \
     return (Element*)var; \
 }
 
-JTForEachAux(DataApply, CreatorDefinition, ConvertNodeDatas(LeafNodes, RecursiveNodes))
+JTForEachAux(DataApply, CreatorDefinition, ConvertNodeDatas(ParametrizedLeafNodes, RecursiveNodes))
+
+#define SingletonDefinition(Node, var, ...) \
+static Element* new##Node(void) { \
+    static Node var = (Node) { .base.type = syntax.Node }; \
+    return (Element*)&var; \
+}
+
+JTForEachAux(DataApply, SingletonDefinition, ConvertNodeDatas(SingletonNodes))
 
 static Element* newSimpleElement(ElementType type) {
     Element* result = allocate(sizeof(Element));
@@ -64,9 +97,10 @@ static Element* newSimpleElement(ElementType type) {
 #define CreatorBinding(Node, type, ...) .type = new##Node
 const struct SyntaxBindings node = {
     JTMapCommaAux(DataApply, CreatorBinding, AllNodes),
-    .appendElement = appendElement,
     .simple = newSimpleElement,
+    .startArray = startArray,
+    .appendElement = appendElement,
     .identifierList = newIdentifierList,
     .appendIdentifier = appendIdentifier,
-    .finalize = finalizeList
+    .finalize = finalize
 };

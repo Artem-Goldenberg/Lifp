@@ -105,6 +105,21 @@ struct Node { \
 #define RecursiveNodeSwitchCaseUnpack(nodeData, funcData) \
     JTApp(RecursiveNodeSwitchCase, JTTakeThree nodeData, JTId funcData)
 
+
+/* special case for array nodes */
+#define ArrayNodeSwitchCase(Node, node, func, var, ...) \
+    case syntax.Node: {  \
+        const Node* node = (const Node*)var; \
+        if (func##Node##Ref) \
+            func##Node##Ref(node __VA_OPT__(,) __VA_ARGS__); \
+        for (uint i = 0; i < node->count; ++i) \
+            func(node->elements[i] __VA_OPT__(,) __VA_ARGS__); \
+    }; break;
+
+#define ArrayNodeSwitchCaseUnpack(nodeData, funcData) \
+    JTApp(ArrayNodeSwitchCase, JTTakeTwo nodeData, JTId funcData)
+
+
 #define NodeTypeSwitch(var, func, ...) \
     switch (var->type) { \
         JTForEachAux( \
@@ -112,13 +127,11 @@ struct Node { \
             (func, var, __VA_ARGS__), \
             ConvertNodeDatas(LeafNodes, RecursiveNodes) \
         ) \
-        case syntax.List: { /* special case for list */ \
-            const List* list = (const List*)var; \
-            if (func##List##Ref) \
-                func##List##Ref(list __VA_OPT__(,) __VA_ARGS__); \
-            for (uint i = 0; i < list->count; ++i) \
-                func(list->elements[i] __VA_OPT__(,) __VA_ARGS__); \
-        }; break; \
+        JTForEachAux( \
+            ArrayNodeSwitchCaseUnpack, \
+            (func, var, __VA_ARGS__), \
+            ConvertNodeDatas(ArrayNodes) \
+        ) \
         default: assert(false); \
     }
 

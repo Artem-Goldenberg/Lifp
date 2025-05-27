@@ -10,11 +10,20 @@
 
 
 int main(int argc, const char* argv[]) {
+    if (argc != 2) {
+        printf("Provide file to parse!\n");
+        return EXIT_FAILURE;
+    }
     int err = initialize(argv[1]);
     if (err) {
-        printf("Provide file to parse!\n");
+        printf("Error opening the file\n");
         return err;
     }
+
+    IdentifierList* globals = node.identifierList();
+    node.finalize();
+
+    program->syntaxRoot = (Prog*)node.prog(globals);
 
     yyparse(program);
 

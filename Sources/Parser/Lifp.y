@@ -29,7 +29,7 @@
     <int>   INTEGER
     <ID>    IDENTIFIER
 
-%type <List*> manyElements program
+%type <Array*> manyElements program
 %type <Element*> element listContent literal
 %type <IdentifierList*> parameters manyIdentifiers
 
@@ -37,10 +37,10 @@
 
 %%
 
-program: manyElements { program->syntaxRoot = $$ = $1; }
+program: manyElements { $$ = $1; }
 
 manyElements:
-    %empty { AssignNonNull($$, node.list()); }
+    %empty { AssignNonNull($$, node.startArray()); }
   | manyElements element { $$ = $1; if (!node.appendElement($1, $2)) YYNOMEM; }
   | manyElements error
 
@@ -55,16 +55,25 @@ listContent:
   | "setq" IDENTIFIER element            { AssignNonNull($$, node.setq($2, $3));       }
   | "func" IDENTIFIER parameters element { AssignNonNull($$, node.func($2, $3, $4));   }
   | "lambda" parameters element          { AssignNonNull($$, node.lambda($2, $3));     }
-  | "prog" parameters element            { AssignNonNull($$, node.prog($2, $3));       }
   | "cond" element element               { AssignNonNull($$, node.cond($2, $3, NULL)); }
   | "cond" element element element       { AssignNonNull($$, node.cond($2, $3, $4));   }
   | "while" element element              { AssignNonNull($$, node.whileNode($2, $3));  }
   | "return" element                     { AssignNonNull($$, node.returnNode($2));     }
   | "break"                              { AssignNonNull($$, node.breakNode());        }
-  | manyElements {
-      $$ = (Element*)$1;
+  | "prog" parameters <Element*>{
+      // this is a mid-rule action, we know it's gonna be a prog node, so we create one and
+      // then we allow actions defined on `manyElements` to fill in the rest of this prog
+      AssignNonNull($$, node.prog($2));
+  }
+  '(' manyElements ')' {
+      $$ = $3; // the value gained is the value from a mid-rule action
       node.finalize();
   }
+  |
+  <Element*>{ // mid rule action again, we know it's gonna be just a list node, so we allocate it
+      $$ = node.list();
+  }
+  manyElements { $$ = $1; node.finalize(); }
 
 parameters: '(' manyIdentifiers ')' { $$ = $2; node.finalize(); }
 
@@ -100,9 +109,6 @@ literal:
         [token.QuoteSymbol] = QUOTESYMBOL,
         [token.OpenParen] = '(',
         [token.CloseParen] = ')',
-        //    [token.QuoteSymbol] = QUOTESYMBOL,
-        //    [token.OpenParen] = OPENPAREN,
-        //    [token.CloseParen] = CLOSEPAREN,
         [token.End] = YYEOF
     };
 
@@ -144,5 +150,4 @@ literal:
             }
         };
         addIssue(program, &error);
-        //    fprintf(stderr, "%s\n", message);
     }

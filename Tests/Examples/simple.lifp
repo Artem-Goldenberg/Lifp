@@ -2,3 +2,30 @@
 (func id (x) x)
 
 (id 10)
+
+#(func (f) (f 1 2 3))
+
+
+(setq y (lambda (x) (+ x 10)))
+
+#(cond (< (y 5) (id 10)) (y 5) (+ 20 30))
+
+(prog (x y z) (
+	(setq x 30)
+	(func some (lst) '(
+		(+ (head lst) 1)
+		(/ (head (tail lst)) 10)
+	))
+	(setq ini '(0 30))
+#	(setq i 0)
+	(while (!= (head (tail ini)) 0)
+		(setq ini (some ini))
+	)
+
+	(return (head ini))
+
+	(cond (> 40 x) (return 100))
+	(return 450)
+	(setq q x)
+	30
+))

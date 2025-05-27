@@ -13,6 +13,16 @@ ProgramInfo* newProgram(FILE* text, const char* filename) {
     return program;
 }
 
+ID registerIdentifier(ProgramInfo* info, const char* name) {
+    uint index = insertIntoStringTable(info->strings, name);
+#ifdef LifpDebug
+    // if debug is on, return pointer to the inserted string, instead of an index
+    return getFromStringTable(info->strings, index);
+#else
+    return index;
+#endif
+}
+
 #ifdef ReportErrors
 void addIssue(ProgramInfo* info, const Issue* newIssue) {
     assert(info->issuesCount < MaxErrors);

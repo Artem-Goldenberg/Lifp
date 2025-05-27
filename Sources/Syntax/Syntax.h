@@ -1,5 +1,3 @@
-#define AllNodes LeafNodes, RecursiveNodes, ListNode
-
 #define RecursiveNodes \
     (Quote, quote, (inner)), \
     (Setq, setq, (value), (ID, variable)), \
@@ -10,31 +8,37 @@
     (Lambda, lambda, (body), \
         (IdentifierListPtr, parameters) \
     ), \
-    (Prog, prog, (body), (IdentifierListPtr, context)), \
     (Cond, cond, (condition, onTrue, onFalse)), \
     (While, whileNode, (condition, body)), \
     (Return, returnNode, (value))
 
-//(Prog, prog, (statements[]),
-//    (IdentifierListPtr, context),
-//    (uint, statementsCount)
-//), 
+/// Special cased array nodes, they contain variadic amount of children in the `elements` field
+#define ArrayNodes \
+    (List, list, (elements[]), (uint, count)), \
+    (Prog, prog, (elements[]), (IdentifierListPtr, context), (uint, count))
 
-/// Special cased list node as it contains variadic amount of children in `elements`
-#define ListNode (List, list, (elements[]), (uint, count))
-
-#define LeafNodes \
+#define SingletonNodes \
     (True, trueNode, ()), \
     (False, falseNode, ()), \
     (Null, null, ()), \
+    (Break, breakNode, ()), \
+    (ScopeBarrier, barrier, ())
+
+#define ParametrizedLeafNodes \
     (Integer, integer, (), (int, value)), \
     (Real, real, (), (float, value)), \
     (Identifier, identifier, (), (ID, id)), \
-    (Break, breakNode, ())
+    /* special builtin function element will be used to insert C-code into the interpreter */ \
+    (BuiltinFunc, builtin, (), (uint, nparams), (CodePointer, code))
+
+#define LeafNodes SingletonNodes, ParametrizedLeafNodes
+#define AllNodes JTExpand(LeafNodes, RecursiveNodes, ArrayNodes)
 
 #define NodeNames JTMapComma(GetNodeName, AllNodes)
 
 typedef struct Element Element;
+
+typedef const Element* (*CodePointer)(Context* context);
 
 // typedef for all nodes
 #define Typedef(Node, ...) typedef struct Node Node;
@@ -48,7 +52,13 @@ typedef struct {
     ID names[];
 } IdentifierList;
 
-typedef IdentifierList* IdentifierListPtr;
+typedef const IdentifierList* IdentifierListPtr;
+
+/// A convinience struct to mark the Array region in the memory of `Prog` and `List` structs
+typedef struct  Array {
+    uint count;
+    Element* elements[];
+} Array;
 
 #define ElementIndex(Node, ...) Node##Type
 typedef enum ElementType: byte {
@@ -61,7 +71,21 @@ struct Element {
 };
 
 // Declare structs for all node types
-JTForEachAux(DataApply, StructDeclaration, ConvertNodeDatas(AllNodes))
+JTForEachAux(DataApply, StructDeclaration, ConvertNodeDatas(LeafNodes, RecursiveNodes))
+
+struct List {
+    Element base;
+    uint dummyPadding;
+    uint count;
+    Element* elements[];
+};
+
+struct Prog {
+    Element base;
+    IdentifierListPtr context;
+    uint count;
+    Element* elements[];
+};
 
 #define CreatorMethodDeclaration(Node, var, children, ...) \
     Element* (*const var)(DeclareNodeFullParameters(children, __VA_ARGS__));
@@ -70,20 +94,23 @@ struct SyntaxBindings {
     JTForEachAux(DataApply, CreatorMethodDeclaration,
                  ConvertNodeDatas(LeafNodes, RecursiveNodes))
 
+    // Special case for list as it's creation doesn't need it's children right away
+    Element* (*const list)(void);
+    Element* (*const prog)(const IdentifierList* context);
+
     // For creating simple elements
     Element* (*const simple)(ElementType type);
 
-    // Special case for list as it's creation doesn't need it's children right away
-    List* (*const list)(void);
-
-    bool (*const appendElement)(List* list, Element* element);
+    // Call right after calling the `list` or `prog` creation methods,
+    // these two methods allow you to fill the contents of a list or a prog nodes
+    Array* (*const startArray)(void);
+    bool (*const appendElement)(Array* list, Element* element);
 
     // Similar utility function for the identifier list
     IdentifierList* (*const identifierList)(void);
-
     bool (*const appendIdentifier)(IdentifierList* list, ID id);
 
-    // Call after finishing appending to a list
+    // Call after finishing appending to an array or an IdentifierList
     void (*const finalize)(void);
 };
 

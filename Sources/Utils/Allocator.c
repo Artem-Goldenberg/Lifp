@@ -28,6 +28,8 @@ __thread struct {
     Chunk* active;
     /// Last chunk which was reserved for contiguous allocation
     Chunk* lastReserved;
+    /// Kind of a hack
+    void* reservedPtr;
 } allocator;
 
 static Chunk* newChunk(Chunk* fromChunk) {
@@ -102,7 +104,7 @@ static Chunk* growChunk(Chunk* chunk) {
     return chunk;
 }
 
-/// Allocates in a reserved contiguous space
+/// Allocates in a reserved contiguous space, size must be a power of 2!
 void* allocateFromReserved(uint size) {
     assert(size < PureChunkSize); // still against big size allocations
     Chunk* chunk = allocator.lastReserved;
@@ -116,8 +118,21 @@ void* allocateFromReserved(uint size) {
         if (!chunk) // allocation failed
             return NULL;
     }
+//    assert((size & (size - 1)) == 0);
+//    byte* result = AlignedAt(size, chunk->top);
     byte* result = chunk->top;
-    chunk->top += size;
+    chunk->top = result + size;
+    return result;
+}
+
+void setReservedPointer(void* pointer) {
+    allocator.reservedPtr = pointer;
+}
+
+void* getReservedPointer(void) {
+    void* result = allocator.reservedPtr;
+    assert(result);
+    allocator.reservedPtr = NULL;
     return result;
 }
 

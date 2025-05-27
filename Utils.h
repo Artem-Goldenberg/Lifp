@@ -44,6 +44,11 @@ int initialize(const char* filepath) {
 
     program->lexer = newLexer(program);
 
+    IdentifierList* globals = node.identifierList();
+    node.finalize();
+
+    program->syntaxRoot = (Prog*)node.prog(globals);
+
     return 0;
 }
 

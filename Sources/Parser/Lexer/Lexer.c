@@ -23,7 +23,7 @@ struct Lexer {
         int integer;
         float real;
         /// Identifier string index in the string table
-        uint identifierIndex;
+        ID identifier;
     } value;
 
     ProgramInfo* programInfo;
@@ -314,8 +314,8 @@ static Token readIdentifier(Lexer* lexer) {
     }
 
     // if not a keyword, store identifier in a special table, which removes duplicates
-    lexer->value.identifierIndex = insertIntoStringTable(lexer->programInfo->strings,
-                                                         lexer->buffer);
+    lexer->value.identifier = registerIdentifier(lexer->programInfo, lexer->buffer);
+
     return token.Identifier;
 }
 
@@ -368,7 +368,7 @@ static void appendTokenInfo(Lexer* lexer, Token type) {
             info.real = lexer->value.real;
             break;
         case token.Identifier:
-            info.identifier = getFromStringTable(lexer->programInfo->strings, lexer->value.identifierIndex);
+            info.identifier = lexer->value.identifier;
             break;
         default: break;
     }
@@ -385,12 +385,7 @@ float getReal(const Lexer* lexer) {
 }
 
 ID getIdentifier(const Lexer* lexer) {
-    uint index = lexer->value.identifierIndex;
-#ifdef LifpDebug
-    return getFromStringTable(lexer->programInfo->strings, index);
-#else
-    return index;
-#endif
+    return lexer->value.identifier;
 }
 
 Location getTokenStartLocation(const Lexer* lexer) {

@@ -1,0 +1,48 @@
+
+(func length (lst)
+	(cond
+		(empty? lst) 0 (+ 1 (length (tail lst)))
+	)
+)
+
+(func merge (f s)
+	(prog () (
+		(cond (empty? f) (return s))
+		(cond (empty? s) (return f))
+		(cond (< (head f) (head s))
+			(cons (head f) (merge (tail f) s)) # if
+			(cons (head s) (merge f (tail s))) # else
+		)
+	))
+)
+
+
+(func take (n list)
+	(cond (== n 0) '()
+		(cons (head list) (take (- n 1) (tail list)))
+	)
+)
+
+(func leave (n list)
+	(cond (== n 0) list
+		(leave (- n 1) (tail list))
+	)
+)
+
+(func merge-sort (list)
+	(prog () (
+		(setq len (length list))
+		(cond (<= len 1) (return list))
+
+		(setq half (/ len 2))
+#		(setq otherHalf (- len half))
+
+		(setq left (merge-sort (take half list)))
+
+		(setq right (merge-sort (leave half list)))
+
+		(merge left right)
+	))
+)
+
+(merge-sort '(3 2 4 1 7 6 9 10 8 5))
